@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLP Registration | Ledger Bros</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #0056b3;
+            --secondary-blue: #007bff;
+            --dark-blue: #003366;
+            --light-gray: #f8f9fa;
+            --dark-gray: #343a40;
+            --accent-yellow: #ffc107;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.7;
+            background-color: #f9f9f9;
+        }
+        
+        .navbar {
+            background: var(--dark-blue) !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+            z-index: 1030;
+            position: fixed;
+            width: 100%;
+            top: 0;
+        }
+        
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 10px 30px rgba(0, 86, 179, 0.2);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: 0.5px;
+            color: white;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            padding: 8px 15px !important;
+            margin: 0 5px;
+            color: white !important;
+            position: relative;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--accent-yellow);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::before,
+        .nav-link.active::before {
+            width: 70%;
+        }
+        
+        .nav-link:hover, 
+        .nav-link.active {
+            color: var(--accent-yellow) !important;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: white;
+            padding: 180px 0 100px;
+            margin-top: 70px;
+        }
+        
+        .hero-title {
+            font-weight: 800;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent-yellow);
+            color: var(--dark-blue);
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 50px;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section-title {
+            color: var(--dark-blue);
+            font-weight: 800;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: var(--accent-yellow);
+        }
+        
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: none;
+            margin-bottom: 20px;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+        
+        .process-step {
+            position: relative;
+            padding-left: 80px;
+            margin-bottom: 30px;
+        }
+        
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .benefit-icon {
+            color: var(--accent-yellow);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            margin-top: 3px;
+        }
+        
+        .pricing-card {
+            border: 2px solid var(--primary-blue);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-card:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+        
+        .pricing-card:hover .price {
+            color: white;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin: 20px 0;
+        }
+        
+        .faq-item {
+            margin-bottom: 15px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .faq-header {
+            background: var(--light-gray);
+            padding: 15px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .faq-content {
+            padding: 15px;
+            background: white;
+            display: none;
+        }
+        
+        .contact-info {
+            margin-bottom: 30px;
+        }
+        
+        .contact-icon {
+            color: var(--accent-yellow);
+            margin-right: 10px;
+        }
+        
+        footer {
+            background: var(--dark-gray);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-links h5 {
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .footer-links h5::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--accent-yellow);
+        }
+        
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.2rem;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent-yellow);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Ledger Bros</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="llp-registration.html">LLP Registration</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="hero-title">Limited Liability Partnership (LLP) Registration</h1>
+                    <p class="hero-subtitle">Register your LLP quickly and easily with our expert assistance. Get your business started in just 7-10 days!</p>
+                    <a href="#contact" class="btn btn-primary">Get Started Now</a>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://registerkaro.in/wp-content/uploads/2023/05/llp-registration-1.png" alt="LLP Registration" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is LLP Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">What is a Limited Liability Partnership (LLP)?</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <p>A Limited Liability Partnership (LLP) is a hybrid business structure that combines the benefits of a partnership firm and a private limited company. It provides limited liability protection to its partners while allowing them to manage the business directly.</p>
+                    <p>Key features of an LLP:</p>
+                    <ul>
+                        <li>Separate legal entity from its partners</li>
+                        <li>Partners have limited liability</li>
+                        <li>Flexible management structure</li>
+                        <li>Less compliance requirements than a company</li>
+                        <li>Taxed as a partnership firm</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://registerkaro.in/wp-content/uploads/2023/05/llp-structure.png" alt="LLP Structure" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Benefits of LLP Registration</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="card-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h4>Limited Liability Protection</h4>
+                            <p>Partners are not personally liable for the debts of the LLP, protecting their personal assets.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="card-icon">
+                                <i class="fas fa-hand-holding-usd"></i>
+                            </div>
+                            <h4>Tax Advantages</h4>
+                            <p>LLPs enjoy lower tax rates compared to companies and no dividend distribution tax.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="card-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h4>Flexible Management</h4>
+                            <p>Partners can directly manage the business without complex governance structures.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documents Required Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">Documents Required for LLP Registration</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">For Partners</h4>
+                            <ul>
+                                <li>PAN Card (Copy)</li>
+                                <li>Aadhaar Card/Passport/Driver's License (Copy)</li>
+                                <li>Latest Bank Statement/Electricity Bill (Address Proof)</li>
+                                <li>Passport-sized Photograph</li>
+                                <li>Email ID and Mobile Number</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">For Registered Office</h4>
+                            <ul>
+                                <li>Electricity Bill/Water Bill (Not older than 2 months)</li>
+                                <li>No Objection Certificate from Owner</li>
+                                <li>Rent Agreement (if rented)</li>
+                                <li>Property Tax Receipt (if owned)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">LLP Registration Process</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Obtain Digital Signature Certificate (DSC)</h4>
+                            <p>All designated partners must obtain DSC as all documents will be filed online.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Apply for Director Identification Number (DIN)</h4>
+                            <p>All designated partners must obtain DIN from the Ministry of Corporate Affairs.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Name Approval Application</h4>
+                            <p>File RUN-LLP (Reserve Unique Name) form to get LLP name approval.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>File Incorporation Documents</h4>
+                            <p>Submit FiLLiP (Form for incorporation of LLP) along with required documents.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>LLP Agreement Filing</h4>
+                            <p>File LLP Agreement within 30 days of incorporation on Form 3.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">LLP Registration Packages</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="pricing-card">
+                        <h3>Basic</h3>
+                        <div class="price">₹4,999</div>
+                        <ul class="list-unstyled">
+                            <li>2 Designated Partners</li>
+                            <li>DSC for 2 Partners</li>
+                            <li>DIN for 2 Partners</li>
+                            <li>Name Approval</li>
+                            <li>LLP Incorporation</li>
+                            <li>LLP Agreement Drafting</li>
+                            <li>PAN & TAN Application</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary">Get Started</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="pricing-card">
+                        <h3>Standard</h3>
+                        <div class="price">₹7,999</div>
+                        <ul class="list-unstyled">
+                            <li>All Basic Features</li>
+                            <li>Up to 4 Designated Partners</li>
+                            <li>GST Registration</li>
+                            <li>MSME Registration</li>
+                            <li>Bank Account Assistance</li>
+                            <li>1 Year Compliance Support</li>
+                            <li>Free Consultations</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary">Get Started</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="pricing-card">
+                        <h3>Premium</h3>
+                        <div class="price">₹12,999</div>
+                        <ul class="list-unstyled">
+                            <li>All Standard Features</li>
+                            <li>Unlimited Designated Partners</li>
+                            <li>Import Export Code</li>
+                            <li>Trademark Registration (1 Class)</li>
+                            <li>Professional Website</li>
+                            <li>2 Years Compliance Support</li>
+                            <li>Priority Support</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Frequently Asked Questions</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="faq-item">
+                        <div class="faq-header">What is the minimum requirement to form an LLP?</div>
+                        <div class="faq-content">
+                            <p>An LLP requires at least 2 partners (individuals or body corporate) and there is no minimum capital requirement. At least one of the partners must be a resident of India.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-header">How long does it take to register an LLP?</div>
+                        <div class="faq-content">
+                            <p>The LLP registration process typically takes 7-10 working days, subject to approval from the Ministry of Corporate Affairs.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-header">What are the compliance requirements for an LLP?</div>
+                        <div class="faq-content">
+                            <p>LLPs must file annual returns (Form 11) and statement of accounts (Form 8) each year. There is no requirement for mandatory audit unless the turnover exceeds ₹40 lakhs or contribution exceeds ₹25 lakhs.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-header">Can an LLP be converted into a private limited company?</div>
+                        <div class="faq-content">
+                            <p>Yes, an LLP can be converted into a private limited company by following the procedure prescribed under the Companies Act, 2013.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-header">What is the difference between an LLP and a partnership firm?</div>
+                        <div class="faq-content">
+                            <p>The key difference is that in an LLP, partners have limited liability and are not personally liable for the debts of the business, whereas in a partnership firm, partners have unlimited liability.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Get in Touch</h2>
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="contact-info">
+                        <h4>Contact Information</h4>
+                        <p><i class="fas fa-map-marker-alt contact-icon"></i> 123 Business Street, Varanasi, Uttar Pradesh, India</p>
+                        <p><i class="fas fa-phone-alt contact-icon"></i> +91 7654846548</p>
+                        <p><i class="fas fa-envelope contact-icon"></i> ledgerbros@gmail.com</p>
+                    </div>
+                    <div class="mt-4">
+                        <h5>Business Hours</h5>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                        <p>Saturday: 10:00 AM - 4:00 PM</p>
+                        <p>Sunday: Closed</p>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <input type="text" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="tel" class="form-control" placeholder="Phone Number" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3>Ledger Bros</h3>
+                    <p>Your trusted partner for all business registration, compliance, and financial services in India.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5>Services</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">LLP Registration</a></li>
+                        <li><a href="#">Private Limited Company</a></li>
+                        <li><a href="#">GST Registration</a></li>
+                        <li><a href="#">Trademark Registration</a></li>
+                        <li><a href="#">Income Tax Filing</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5>Company</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4 mb-4">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe to our newsletter for the latest updates and offers.</p>
+                    <form class="mb-3">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your Email">
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2023 Ledger Bros. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
