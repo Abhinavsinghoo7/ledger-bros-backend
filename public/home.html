@@ -281,15 +281,16 @@
       left: 100%;
     }
     
-    /* Modern Hero Section */
+    /* Enhanced Modern Hero Section */
     .hero-section {
       position: relative;
       color: white;
-      padding: 180px 0 120px;
+      padding: 0;
       overflow: hidden;
       min-height: 100vh;
       display: flex;
       align-items: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
     
     .hero-video {
@@ -299,103 +300,351 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      z-index: -1;
+      z-index: 1;
     }
     
-    .overlay {
+    .gradient-overlay {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 51, 102, 0.7);
-      z-index: -1;
+      background: linear-gradient(
+        135deg,
+        rgba(0, 51, 102, 0.85) 0%,
+        rgba(0, 86, 179, 0.75) 25%,
+        rgba(102, 126, 234, 0.65) 50%,
+        rgba(118, 75, 162, 0.75) 75%,
+        rgba(0, 51, 102, 0.85) 100%
+      );
+      z-index: 2;
+      animation: gradientShift 8s ease-in-out infinite;
+    }
+    
+    @keyframes gradientShift {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 0.6; }
     }
     
     .hero-content {
       position: relative;
-      z-index: 1;
+      z-index: 3;
       text-align: center;
       width: 100%;
+      padding: 100px 0;
     }
     
-    .hero-content h1 {
-      font-weight: 800;
-      font-size: 3.5rem;
-      margin-bottom: 20px;
-      line-height: 1.2;
-      position: relative;
-      display: inline-block;
-    }
-    
-    .hero-content h1::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 70px;
-      height: 4px;
-      background: var(--accent-yellow);
-      border-radius: 2px;
-    }
-    
-    .hero-content p {
-      font-size: 1.3rem;
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 500;
       margin-bottom: 30px;
+      animation: badgeFloat 3s ease-in-out infinite;
+    }
+    
+    @keyframes badgeFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+    }
+    
+    .hero-title {
+      font-weight: 800;
+      font-size: 4rem;
+      line-height: 1.1;
+      margin-bottom: 30px;
+      position: relative;
+    }
+    
+    .title-line-1 {
+      display: block;
+      background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: titleSlideIn 1s ease-out 0.6s both;
+    }
+    
+    .title-line-2 {
+      display: block;
+      background: linear-gradient(135deg, #ffc107 0%, #ff8c00 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: titleSlideIn 1s ease-out 0.8s both;
+    }
+    
+    .title-highlight {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 10px;
+      animation: titleSlideIn 1s ease-out 1s both;
+    }
+    
+    @keyframes titleSlideIn {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .hero-description {
+      font-size: 1.4rem;
+      margin-bottom: 40px;
       opacity: 0.9;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+    
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      margin: 50px 0;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
     }
     
-    .btn-hero {
-      background-color: var(--accent-yellow);
+    .stat-item {
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--accent-yellow);
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .stat-divider {
+      width: 1px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.2);
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+    }
+    
+    .btn-primary-hero {
+      background: linear-gradient(135deg, var(--accent-yellow) 0%, #ff8c00 100%);
       color: var(--dark-blue);
       font-weight: 600;
-      padding: 15px 40px;
+      padding: 18px 35px;
       border-radius: 50px;
       border: none;
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       position: relative;
       overflow: hidden;
-      box-shadow: 0 10px 20px rgba(0, 86, 179, 0.3);
-      z-index: 1;
+      box-shadow: 0 10px 30px rgba(255, 193, 7, 0.3);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font-size: 1.1rem;
-      margin-top: 20px;
     }
     
-    .btn-hero::before {
+    .btn-primary-hero::before {
       content: '';
       position: absolute;
       top: 0;
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
       transition: all 0.6s ease;
-      z-index: -1;
     }
     
-    .btn-hero:hover {
-      background-color: white;
-      transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 15px 30px rgba(0, 86, 179, 0.4);
+    .btn-primary-hero:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(255, 193, 7, 0.4);
+      color: var(--dark-blue);
+      text-decoration: none;
     }
     
-    .btn-hero:hover::before {
+    .btn-primary-hero:hover::before {
       left: 100%;
     }
     
-    /* Simple Particle Background */
-    .particles {
+    .btn-secondary-hero {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-weight: 500;
+      padding: 18px 35px;
+      border-radius: 50px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.4s ease;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.1rem;
+      backdrop-filter: blur(10px);
+    }
+    
+    .btn-secondary-hero:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: translateY(-3px);
+      color: white;
+      text-decoration: none;
+    }
+    
+    .hero-scroll-indicator {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+      animation: scrollBounce 2s infinite;
+    }
+    
+    .scroll-line {
+      width: 2px;
+      height: 30px;
+      background: linear-gradient(to bottom, transparent, var(--accent-yellow));
+      margin-bottom: 10px;
+    }
+    
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(10px); }
+    }
+    
+    /* Floating Geometric Shapes */
+    .floating-shapes {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       overflow: hidden;
-      z-index: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+    
+    .shape {
+      position: absolute;
+      background: rgba(255, 193, 7, 0.1);
+      border: 2px solid rgba(255, 193, 7, 0.3);
+      border-radius: 50%;
+    }
+    
+    .shape-1 {
+      width: 80px;
+      height: 80px;
+      top: 20%;
+      left: 10%;
+      animation: float1 6s ease-in-out infinite;
+    }
+    
+    .shape-2 {
+      width: 120px;
+      height: 120px;
+      top: 60%;
+      right: 15%;
+      animation: float2 8s ease-in-out infinite;
+      border-radius: 20px;
+    }
+    
+    .shape-3 {
+      width: 60px;
+      height: 60px;
+      top: 30%;
+      right: 25%;
+      animation: float3 7s ease-in-out infinite;
+    }
+    
+    .shape-4 {
+      width: 100px;
+      height: 100px;
+      bottom: 20%;
+      left: 20%;
+      animation: float4 9s ease-in-out infinite;
+      border-radius: 15px;
+    }
+    
+    .shape-5 {
+      width: 40px;
+      height: 40px;
+      top: 70%;
+      left: 50%;
+      animation: float5 5s ease-in-out infinite;
+    }
+    
+    @keyframes float1 {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+    }
+    
+    @keyframes float2 {
+      0%, 100% { transform: translateX(0px) translateY(0px) rotate(0deg); }
+      50% { transform: translateX(-30px) translateY(-15px) rotate(90deg); }
+    }
+    
+    @keyframes float3 {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-25px) scale(1.1); }
+    }
+    
+    @keyframes float4 {
+      0%, 100% { transform: translateX(0px) rotate(0deg); }
+      50% { transform: translateX(20px) rotate(-90deg); }
+    }
+    
+    @keyframes float5 {
+      0%, 100% { transform: translateY(0px) translateX(0px) scale(1); }
+      50% { transform: translateY(-10px) translateX(10px) scale(1.2); }
+    }
+    
+    /* Particles Canvas */
+    .particles-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
     }
     
     .particle {
@@ -422,53 +671,84 @@
       }
     }
     
-    /* Modern Services Section */
+    /* Enhanced Modern Services Section */
     .services-section {
-      padding: 100px 0;
-      background-color: var(--light-gray);
+      padding: 120px 0;
+      background: linear-gradient(135deg, #f8fdff 0%, #f0f8ff 50%, #e6f3ff 100%);
       position: relative;
       overflow: hidden;
+    }
+    
+    .services-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(255, 193, 7, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 86, 179, 0.08) 0%, transparent 50%);
+      z-index: 1;
+    }
+    
+    .services-section .container {
+      position: relative;
+      z-index: 2;
     }
     
     .section-title {
       color: var(--dark-blue);
       font-weight: 800;
-      font-size: 2.8rem;
-      margin-bottom: 60px;
+      font-size: 3rem;
+      margin-bottom: 20px;
       position: relative;
       display: inline-block;
       text-transform: uppercase;
       letter-spacing: 1px;
+      background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     
     .section-title::after {
       content: '';
       position: absolute;
-      width: 50%;
+      width: 60%;
       height: 4px;
-      background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
+      background: linear-gradient(90deg, var(--primary-blue), var(--accent-yellow));
       bottom: -15px;
-      left: 0;
+      left: 50%;
+      transform: translateX(-50%);
       border-radius: 2px;
       animation: underlineGrow 1.5s ease-out forwards;
     }
     
     @keyframes underlineGrow {
-      from { width: 0; }
-      to { width: 50%; }
+      from { 
+        width: 0; 
+        opacity: 0;
+      }
+      to { 
+        width: 60%; 
+        opacity: 1;
+      }
     }
     
     .service-card {
-      background: white;
-      border-radius: 15px;
-      padding: 40px 30px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(20px);
+      border-radius: 25px;
+      padding: 45px 35px;
       margin-bottom: 30px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.08),
+        0 0 0 1px rgba(255, 255, 255, 0.3);
       transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       position: relative;
       overflow: hidden;
-      z-index: 1;
-      border: 1px solid rgba(0, 0, 0, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      height: 100%;
     }
     
     .service-card::before {
@@ -478,58 +758,135 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, rgba(0, 86, 179, 0.03), rgba(0, 123, 255, 0.05));
-      z-index: -1;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 193, 7, 0.03) 0%,
+        rgba(0, 86, 179, 0.03) 100%
+      );
       opacity: 0;
-      transition: all 0.5s ease;
+      transition: opacity 0.3s ease;
+    }
+    
+    .service-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, var(--primary-blue), var(--accent-yellow));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
     }
     
     .service-card:hover {
-      transform: translateY(-15px) scale(1.03);
-      box-shadow: 0 20px 40px rgba(0, 86, 179, 0.15);
+      transform: translateY(-20px) scale(1.03);
+      box-shadow: 
+        0 35px 70px rgba(0, 86, 179, 0.12),
+        0 0 0 1px rgba(255, 255, 255, 0.5);
     }
     
     .service-card:hover::before {
       opacity: 1;
     }
     
+    .service-card:hover::after {
+      transform: scaleX(1);
+    }
+    
     .service-icon {
-      font-size: 2.8rem;
-      color: var(--primary-blue);
-      margin-bottom: 25px;
-      transition: all 0.5s ease;
+      width: 90px;
+      height: 90px;
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+      border-radius: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 86, 179, 0.2);
+    }
+    
+    .service-icon::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: all 0.6s ease;
+    }
+    
+    .service-card:hover .service-icon::before {
+      left: 100%;
+    }
+    
+    .service-icon i {
+      font-size: 2.2rem;
+      color: white;
+      transition: all 0.4s ease;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
     }
     
     .service-card:hover .service-icon {
-      transform: rotateY(180deg) scale(1.2);
-      color: var(--secondary-blue);
+      transform: rotateY(360deg) scale(1.1);
+      background: linear-gradient(135deg, var(--accent-yellow) 0%, #ff8c00 100%);
+      box-shadow: 0 15px 35px rgba(255, 193, 7, 0.3);
     }
     
     .service-card h3 {
       font-weight: 700;
-      margin-bottom: 15px;
-      position: relative;
-      display: inline-block;
+      font-size: 1.6rem;
+      color: var(--dark-blue);
+      margin-bottom: 25px;
+      transition: all 0.3s ease;
+      letter-spacing: 0.5px;
     }
     
-    .service-card h3::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      width: 40px;
-      height: 3px;
-      background: var(--accent-yellow);
-      transition: all 0.5s ease;
+    .service-card:hover h3 {
+      color: var(--primary-blue);
+      transform: translateY(-2px);
     }
     
-    .service-card:hover h3::after {
-      width: 80px;
+    .service-features {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 30px;
     }
     
-    .service-card p {
-      color: #666;
-      margin-bottom: 20px;
+    .service-features li {
+      padding: 12px 0;
+      color: #555;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .service-features li:last-child {
+      border-bottom: none;
+    }
+    
+    .service-features li i {
+      color: var(--accent-yellow);
+      margin-right: 12px;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+      width: 16px;
+    }
+    
+    .service-card:hover .service-features li {
+      color: #333;
+      transform: translateX(8px);
+    }
+    
+    .service-card:hover .service-features li i {
+      color: var(--primary-blue);
+      transform: scale(1.3) rotate(360deg);
     }
     
     .service-card .learn-more {
@@ -538,21 +895,46 @@
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      transition: all 0.3s ease;
+      gap: 10px;
+      transition: all 0.4s ease;
+      position: relative;
+      padding: 12px 20px;
+      border-radius: 50px;
+      background: rgba(0, 86, 179, 0.05);
+      border: 2px solid transparent;
+    }
+    
+    .service-card .learn-more::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--primary-blue), var(--accent-yellow));
+      border-radius: 50px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
+    
+    .service-card .learn-more:hover::before {
+      opacity: 1;
+    }
+    
+    .service-card .learn-more:hover {
+      color: white;
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 10px 25px rgba(0, 86, 179, 0.2);
+      text-decoration: none;
     }
     
     .service-card .learn-more i {
-      margin-left: 8px;
-      transition: all 0.3s ease;
+      transition: transform 0.3s ease;
     }
     
-    .service-card:hover .learn-more {
-      color: var(--secondary-blue);
-      transform: translateX(5px);
-    }
-    
-    .service-card:hover .learn-more i {
-      transform: translateX(5px);
+    .service-card .learn-more:hover i {
+      transform: translateX(5px) rotate(45deg);
     }
     
     /* Modern About Section */
@@ -1171,62 +1553,150 @@
       transform: scale(1.1);
     }
     
-    /* Responsive Adjustments */
-    @media (max-width: 992px) {
-      .hero-content h1 {
-        font-size: 2.8rem;
+    /* Enhanced Responsive Design */
+    @media (max-width: 1200px) {
+      .hero-title {
+        font-size: 3.5rem;
       }
       
-      .hero-content p {
-        font-size: 1.1rem;
+      .hero-stats {
+        gap: 30px;
+        padding: 25px;
+      }
+      
+      .stat-number {
+        font-size: 2.2rem;
+      }
+      
+      .floating-shapes .shape {
+        opacity: 0.6;
+      }
+    }
+    
+    @media (max-width: 992px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+      
+      .hero-description {
+        font-size: 1.2rem;
+      }
+      
+      .hero-stats {
+        flex-direction: column;
+        gap: 20px;
+        max-width: 400px;
+      }
+      
+      .stat-divider {
+        width: 60px;
+        height: 1px;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
       }
       
       .section-title {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
+      }
+      
+      .service-card {
+        padding: 35px 25px;
+      }
+      
+      .service-icon {
+        width: 80px;
+        height: 80px;
+      }
+      
+      .service-icon i {
+        font-size: 2rem;
       }
     }
     
     @media (max-width: 768px) {
       .hero-section {
-        padding: 120px 0 80px;
-        text-align: center;
+        padding: 80px 0 60px;
       }
       
-      .hero-content h1 {
-        font-size: 2.2rem;
+      .hero-content {
+        padding: 80px 0;
       }
       
-      .hero-content p {
-        font-size: 1rem;
-        max-width: 100%;
+      .hero-title {
+        font-size: 2.5rem;
       }
       
-      .section-title {
-        font-size: 1.8rem;
-      }
-      
-      .hero-content h1::after {
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      
-      .about-content h2::after {
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      
-      .contact-info h3::after {
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      
-      .footer-links {
+      .hero-description {
+        font-size: 1.1rem;
         margin-bottom: 30px;
       }
       
-      .footer-links h5::after {
-        left: 50%;
-        transform: translateX(-50%);
+      .hero-badge {
+        font-size: 0.8rem;
+        padding: 10px 20px;
+      }
+      
+      .title-highlight {
+        font-size: 1.2rem;
+      }
+      
+      .hero-stats {
+        margin: 30px 0;
+        padding: 20px;
+      }
+      
+      .stat-number {
+        font-size: 2rem;
+      }
+      
+      .btn-primary-hero,
+      .btn-secondary-hero {
+        padding: 15px 25px;
+        font-size: 1rem;
+      }
+      
+      .hero-scroll-indicator {
+        bottom: 20px;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .services-section {
+        padding: 80px 0;
+      }
+      
+      .service-card {
+        padding: 30px 20px;
+        margin-bottom: 20px;
+      }
+      
+      .service-icon {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 20px;
+      }
+      
+      .service-icon i {
+        font-size: 1.8rem;
+      }
+      
+      .service-card h3 {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+      }
+      
+      .service-features li {
+        padding: 10px 0;
+        font-size: 0.9rem;
+      }
+      
+      .floating-shapes {
+        display: none;
       }
 
       .chatbot-container {
@@ -1238,15 +1708,88 @@
     
     @media (max-width: 576px) {
       .navbar-brand {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
       }
       
       .navbar-brand img {
         height: 30px;
       }
       
-      .hero-content h1 {
+      .hero-title {
+        font-size: 2rem;
+      }
+      
+      .title-line-1, .title-line-2 {
         font-size: 1.8rem;
+      }
+      
+      .title-highlight {
+        font-size: 1rem;
+      }
+      
+      .hero-description {
+        font-size: 1rem;
+        padding: 0 10px;
+      }
+      
+      .hero-badge {
+        font-size: 0.75rem;
+        padding: 8px 16px;
+      }
+      
+      .hero-stats {
+        flex-direction: row;
+        gap: 15px;
+        padding: 15px;
+        margin: 25px 0;
+      }
+      
+      .stat-number {
+        font-size: 1.5rem;
+      }
+      
+      .stat-label {
+        font-size: 0.75rem;
+      }
+      
+      .btn-primary-hero,
+      .btn-secondary-hero {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        width: 100%;
+        max-width: 280px;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .service-card {
+        padding: 25px 15px;
+      }
+      
+      .service-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 15px;
+      }
+      
+      .service-icon i {
+        font-size: 1.5rem;
+      }
+      
+      .service-card h3 {
+        font-size: 1.2rem;
+      }
+      
+      .service-features li {
+        padding: 8px 0;
+        font-size: 0.85rem;
+      }
+      
+      .service-card .learn-more {
+        padding: 10px 15px;
+        font-size: 0.9rem;
       }
       
       .section-title {
@@ -1378,19 +1921,75 @@
       Your browser does not support HTML5 video.
     </video>
 
-    <!-- Dark overlay -->
-    <div class="overlay"></div>
+    <!-- Animated Gradient Overlay -->
+    <div class="gradient-overlay"></div>
+    
+    <!-- Floating Geometric Shapes -->
+    <div class="floating-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+      <div class="shape shape-4"></div>
+      <div class="shape shape-5"></div>
+    </div>
 
     <!-- Hero Content -->
     <div class="container">
       <div class="hero-content">
-        <h1 class="display-4 fw-bold">Your Trusted Partner for Business Solutions</h1>
-        <p class="lead mb-4">
-          Professional services for company registration, tax filing, and financial compliance to help your business thrive.
+        <div class="hero-badge" data-aos="fade-down" data-aos-delay="200">
+          <i class="fas fa-star"></i>
+          <span>Trusted by 1000+ Businesses</span>
+        </div>
+        
+        <h1 class="hero-title" data-aos="fade-up" data-aos-delay="400">
+          <span class="title-line-1">Your Business</span>
+          <span class="title-line-2">Growth Partner</span>
+          <span class="title-highlight">Since 2018</span>
+        </h1>
+        
+        <p class="hero-description" data-aos="fade-up" data-aos-delay="600">
+          Streamline your business operations with our comprehensive suite of professional services - 
+          from company registration to financial compliance, we're here to fuel your success.
         </p>
-        <a href="#services" class="btn btn-hero">Explore More</a>
+        
+        <div class="hero-stats" data-aos="fade-up" data-aos-delay="800">
+          <div class="stat-item">
+            <div class="stat-number" data-count="1000">0</div>
+            <div class="stat-label">Happy Clients</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="15">0</div>
+            <div class="stat-label">Services</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="99">0</div>
+            <div class="stat-label">Success Rate</div>
+          </div>
+        </div>
+        
+        <div class="hero-buttons" data-aos="fade-up" data-aos-delay="1000">
+          <a href="#services" class="btn btn-primary-hero">
+            <span>Explore Services</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="#contact" class="btn btn-secondary-hero">
+            <i class="fas fa-phone"></i>
+            <span>Get Free Consultation</span>
+          </a>
+        </div>
+        
+        <div class="hero-scroll-indicator" data-aos="fade-in" data-aos-delay="1200">
+          <div class="scroll-line"></div>
+          <span>Scroll to explore</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
       </div>
     </div>
+
+    <!-- Particles Canvas -->
+    <canvas id="particles-canvas" class="particles-canvas"></canvas>
   </section>
 
   <!-- Services Section -->
@@ -1762,8 +2361,23 @@
         }
         setTimeout(function() {
           document.body.classList.add('loaded');
-          createParticles();
-          initScrollAnimations();
+          createAdvancedParticles();
+          initAdvancedAnimations();
+          
+          // Animate counters when they come into view
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                animateCounters();
+                observer.unobserve(entry.target);
+              }
+            });
+          });
+          
+          const statsSection = document.querySelector('.hero-stats');
+          if (statsSection) {
+            observer.observe(statsSection);
+          }
         }, 500);
       }
     });
@@ -1814,66 +2428,277 @@
       });
     });
 
-    // Create floating particles for hero section
-    function createParticles() {
-      const particlesContainer = document.createElement('div');
-      particlesContainer.id = 'particles';
-      document.querySelector('.hero-section').appendChild(particlesContainer);
+    // Advanced Particles System
+    function createAdvancedParticles() {
+      const canvas = document.getElementById('particles-canvas');
+      const ctx = canvas.getContext('2d');
       
-      const particleCount = 20;
-      
-      for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
-        
-        // Random properties
-        const size = Math.random() * 5 + 2;
-        const posX = Math.random() * 100;
-        const posY = Math.random() * 100 + 100;
-        const duration = Math.random() * 15 + 10;
-        const delay = Math.random() * 5;
-        const opacity = Math.random() * 0.3 + 0.1;
-        
-        // Apply styles
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        particle.style.left = `${posX}%`;
-        particle.style.top = `${posY}%`;
-        particle.style.animationDuration = `${duration}s`;
-        particle.style.animationDelay = `${delay}s`;
-        particle.style.opacity = opacity;
-        
-        // Add to container
-        particlesContainer.appendChild(particle);
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
       }
+      
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+      
+      const particles = [];
+      const particleCount = 50;
+      
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.vx = (Math.random() - 0.5) * 0.5;
+          this.vy = (Math.random() - 0.5) * 0.5;
+          this.radius = Math.random() * 2 + 1;
+          this.opacity = Math.random() * 0.5 + 0.2;
+          this.life = Math.random() * 100 + 100;
+          this.decay = Math.random() * 0.01 + 0.005;
+        }
+        
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          this.life -= this.decay;
+          this.opacity = Math.max(0, this.life / 100 * 0.7);
+          
+          // Bounce off edges
+          if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+          if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+          
+          // Reset if dead
+          if (this.life <= 0) {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.life = Math.random() * 100 + 100;
+          }
+        }
+        
+        draw() {
+          ctx.save();
+          ctx.globalAlpha = this.opacity;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = '#ffc107';
+          ctx.fill();
+          ctx.restore();
+        }
+      }
+      
+      // Initialize particles
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+      
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        particles.forEach(particle => {
+          particle.update();
+          particle.draw();
+        });
+        
+        // Draw connections
+        particles.forEach((particle, i) => {
+          particles.slice(i + 1).forEach(otherParticle => {
+            const dx = particle.x - otherParticle.x;
+            const dy = particle.y - otherParticle.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            if (distance < 100) {
+              ctx.save();
+              ctx.globalAlpha = (100 - distance) / 100 * 0.2;
+              ctx.beginPath();
+              ctx.moveTo(particle.x, particle.y);
+              ctx.lineTo(otherParticle.x, otherParticle.y);
+              ctx.strokeStyle = '#ffc107';
+              ctx.lineWidth = 1;
+              ctx.stroke();
+              ctx.restore();
+            }
+          });
+        });
+        
+        requestAnimationFrame(animate);
+      }
+      
+      animate();
+    }
+    
+    // Counter Animation
+    function animateCounters() {
+      const counters = document.querySelectorAll('.stat-number');
+      
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-count'));
+        const increment = target / 100;
+        let current = 0;
+        
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+          counter.textContent = Math.floor(current) + (target === 99 ? '%' : '+');
+        }, 20);
+      });
     }
 
-    // Initialize GSAP scroll animations
-    function initScrollAnimations() {
+    // Enhanced GSAP Animations
+    function initAdvancedAnimations() {
       // Only initialize if GSAP is loaded
       if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-        // Animate service cards with stagger
+        // Register ScrollTrigger plugin
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Hero content entrance animation
+        const tl = gsap.timeline();
+        tl.from('.hero-badge', { 
+          y: -50, 
+          opacity: 0, 
+          duration: 1, 
+          ease: "back.out(1.7)" 
+        })
+        .from('.title-line-1', { 
+          x: -100, 
+          opacity: 0, 
+          duration: 1, 
+          ease: "power3.out" 
+        }, "-=0.5")
+        .from('.title-line-2', { 
+          x: 100, 
+          opacity: 0, 
+          duration: 1, 
+          ease: "power3.out" 
+        }, "-=0.7")
+        .from('.title-highlight', { 
+          y: 30, 
+          opacity: 0, 
+          duration: 0.8, 
+          ease: "power2.out" 
+        }, "-=0.5")
+        .from('.hero-description', { 
+          y: 30, 
+          opacity: 0, 
+          duration: 0.8, 
+          ease: "power2.out" 
+        }, "-=0.3")
+        .from('.hero-stats', { 
+          scale: 0.8, 
+          opacity: 0, 
+          duration: 1, 
+          ease: "back.out(1.7)" 
+        }, "-=0.3")
+        .from('.hero-buttons .btn-primary-hero', { 
+          x: -50, 
+          opacity: 0, 
+          duration: 0.8, 
+          ease: "power2.out" 
+        }, "-=0.3")
+        .from('.hero-buttons .btn-secondary-hero', { 
+          x: 50, 
+          opacity: 0, 
+          duration: 0.8, 
+          ease: "power2.out" 
+        }, "-=0.6")
+        .from('.hero-scroll-indicator', { 
+          y: 20, 
+          opacity: 0, 
+          duration: 0.8, 
+          ease: "power2.out" 
+        }, "-=0.3");
+
+        // Floating shapes animation
+        gsap.to('.floating-shapes .shape', {
+          y: "random(-20, 20)",
+          x: "random(-15, 15)",
+          rotation: "random(-180, 180)",
+          duration: "random(3, 6)",
+          ease: "sine.inOut",
+          repeat: -1,
+          yoyo: true,
+          stagger: {
+            amount: 2,
+            from: "random"
+          }
+        });
+
+        // Service cards with advanced animations
         gsap.utils.toArray('.service-card').forEach((card, i) => {
+          gsap.set(card, { transformOrigin: "center center" });
+          
           gsap.from(card, {
             scrollTrigger: {
               trigger: card,
-              start: "top 80%",
-              toggleActions: "play none none none"
+              start: "top 85%",
+              end: "bottom 15%",
+              toggleActions: "play none none reverse"
             },
-            y: 50,
+            y: 80,
             opacity: 0,
-            duration: 0.8,
-            delay: i * 0.1,
-            ease: "power2.out"
+            scale: 0.8,
+            rotation: Math.random() * 10 - 5,
+            duration: 1.2,
+            delay: i * 0.15,
+            ease: "back.out(1.7)"
+          });
+
+          // Hover animations for service cards
+          card.addEventListener('mouseenter', () => {
+            gsap.to(card, {
+              scale: 1.05,
+              y: -10,
+              boxShadow: "0 20px 40px rgba(0, 123, 255, 0.2)",
+              duration: 0.3,
+              ease: "power2.out"
+            });
+          });
+
+          card.addEventListener('mouseleave', () => {
+            gsap.to(card, {
+              scale: 1,
+              y: 0,
+              boxShadow: "0 6px 15px rgba(0, 0, 0, 0.07)",
+              duration: 0.3,
+              ease: "power2.out"
+            });
           });
         });
 
-        // Initialize AOS after page load
+        // Section titles animation
+        gsap.utils.toArray('.section-title').forEach(title => {
+          gsap.from(title, {
+            scrollTrigger: {
+              trigger: title,
+              start: "top 90%"
+            },
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            ease: "power3.out"
+          });
+        });
+
+        // Parallax effect for hero background
+        gsap.to('.hero-video', {
+          yPercent: -50,
+          ease: "none",
+          scrollTrigger: {
+            trigger: '.hero-section',
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true
+          }
+        });
+
+        // Initialize AOS for fallback elements
         if (typeof AOS !== 'undefined') {
           AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
+            duration: 1000,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 100
           });
         }
       }
