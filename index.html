@@ -1,0 +1,246 @@
+  <style>
+    :root {
+      --primary-blue: #0a1931;
+      --secondary-blue: #185adb;
+      --dark-blue: #000814;
+      --light-gray: #222831;
+      --dark-gray: #121212;
+      --accent-yellow: #ffc107;
+      --primary-color: #185adb;
+      --primary-dark: #0a1931;
+      --text-dark: #f1f1f1;
+      --card-bg: #1a2233;
+      --section-bg: #181c2f;
+      --input-bg: #232946;
+      --input-border: #393e46;
+    }
+    body {
+      background-color: var(--dark-blue);
+      color: var(--text-dark);
+    }
+    .navbar {
+      background: var(--dark-gray) !important;
+      box-shadow: 0 4px 20px rgba(24, 90, 219, 0.1);
+    }
+    .navbar .nav-link {
+      color: var(--text-dark) !important;
+    }
+    .navbar .nav-link.active, .navbar .nav-link:hover {
+      color: var(--accent-yellow) !important;
+    }
+    .dropdown-menu {
+      background: var(--card-bg);
+      color: var(--text-dark);
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(24, 90, 219, 0.15);
+    }
+    .dropdown-item {
+      color: var(--text-dark);
+    }
+    .dropdown-item:hover {
+      background: var(--secondary-blue);
+      color: var(--accent-yellow);
+    }
+    .hero-section {
+      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+      color: var(--text-dark);
+    }
+    .card, .service-card, .feature-box, .contact-form {
+      background: var(--card-bg) !important;
+      color: var(--text-dark);
+      border: 1px solid var(--input-border);
+    }
+    .about-section, .features-section, .services-section {
+      background: var(--section-bg);
+      color: var(--text-dark);
+    }
+    .footer {
+      background: var(--dark-gray);
+      color: var(--text-dark);
+    }
+    .footer-links a {
+      color: #b0b8c1;
+    }
+    .footer-links a:hover {
+      color: var(--accent-yellow);
+    }
+    .form-control, .form-select {
+      background: var(--input-bg);
+      color: var(--text-dark);
+      border: 1px solid var(--input-border);
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--accent-yellow);
+      background: var(--input-bg);
+      color: var(--text-dark);
+    }
+    .btn-hero, .about-btn, .btn-submit, .btn-primary {
+      background: var(--accent-yellow);
+      color: var(--dark-blue) !important;
+    }
+    .btn-hero:hover, .about-btn:hover, .btn-submit:hover, .btn-primary:hover {
+      background: var(--secondary-blue);
+      color: var(--accent-yellow) !important;
+    }
+    .back-to-top {
+      background: var(--secondary-blue);
+      color: var(--accent-yellow);
+    }
+    .back-to-top:hover {
+      background: var(--accent-yellow);
+      color: var(--secondary-blue);
+    }
+    .chatbot-window {
+      background: var(--card-bg);
+      color: var(--text-dark);
+    }
+    .chatbot-header {
+      background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+      color: var(--accent-yellow);
+    }
+    .chatbot-message.bot {
+      background: #232946;
+      color: var(--accent-yellow);
+    }
+    .chatbot-message.user {
+      background: var(--secondary-blue);
+      color: var(--accent-yellow);
+    }
+    .chatbot-input input {
+      background: var(--input-bg);
+      color: var(--text-dark);
+      border: 1px solid var(--input-border);
+    }
+    .chatbot-input button {
+      background: var(--accent-yellow);
+      color: var(--dark-blue);
+    }
+    .chatbot-input button:hover {
+      background: var(--secondary-blue);
+      color: var(--accent-yellow);
+    }
+    /* Mobile Navbar Dropdown Enhancement */
+    @media (max-width: 991.98px) {
+      .navbar-collapse {
+        background: var(--dark-gray);
+        padding: 1rem;
+        border-radius: 0 0 15px 15px;
+      }
+      .dropdown-menu {
+        position: static !important;
+        float: none;
+        width: 100%;
+        margin-top: 0;
+        box-shadow: none;
+        border-radius: 10px;
+      }
+      .dropdown-item {
+        padding: 15px 20px;
+        font-size: 1.1rem;
+      }
+    }
+    /* Section Spacing and Structure */
+    .section {
+      padding: 80px 0 60px;
+    }
+    .section-title {
+      color: var(--accent-yellow);
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+    .section-divider {
+      width: 80px;
+      height: 4px;
+      background: var(--accent-yellow);
+      margin: 0 auto 30px auto;
+      border-radius: 2px;
+    }
+    /* Modal for Zoho Form */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: auto;
+      background: rgba(0,0,0,0.8);
+      align-items: center;
+      justify-content: center;
+    }
+    .modal.active {
+      display: flex;
+    }
+    .modal-content {
+      background: var(--card-bg);
+      border-radius: 15px;
+      padding: 0;
+      max-width: 600px;
+      width: 95vw;
+      box-shadow: 0 10px 40px rgba(24,90,219,0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 2rem;
+      color: var(--accent-yellow);
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 10;
+    }
+    .modal-iframe {
+      width: 100%;
+      height: 80vh;
+      border: none;
+      border-radius: 0 0 15px 15px;
+      background: var(--card-bg);
+    }
+  </style>
+<!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="text-center section-title" data-aos="fade-up">Contact Us</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-8 text-center" data-aos="fade-up">
+          <p style="font-size:1.2rem;">Have questions or need a custom solution? Reach out to us and our team will get back to you promptly.</p>
+          <button class="btn btn-hero btn-lg mt-4" id="openZohoForm">Open Contact Form</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Zoho Form Modal -->
+  <div class="modal" id="zohoModal">
+    <div class="modal-content">
+      <button class="modal-close" id="closeZohoModal">&times;</button>
+      <iframe class="modal-iframe" src="https://forms.zohopublic.com/yourformurl" title="Contact Form"></iframe>
+    </div>
+  </div>
+  <script>
+    // Zoho Form Modal Logic
+    document.addEventListener('DOMContentLoaded', function() {
+      const openBtn = document.getElementById('openZohoForm');
+      const modal = document.getElementById('zohoModal');
+      const closeBtn = document.getElementById('closeZohoModal');
+      if (openBtn && modal && closeBtn) {
+        openBtn.addEventListener('click', function() {
+          modal.classList.add('active');
+        });
+        closeBtn.addEventListener('click', function() {
+          modal.classList.remove('active');
+        });
+        modal.addEventListener('click', function(e) {
+          if (e.target === modal) {
+            modal.classList.remove('active');
+          }
+        });
+      }
+    });
+  </script>
