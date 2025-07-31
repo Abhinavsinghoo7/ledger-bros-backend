@@ -1,0 +1,190 @@
+  <style>
+    :root {
+      --primary-blue: #0a1931;
+      --secondary-blue: #185adb;
+      --dark-blue: #000814;
+      --light-gray: #222831;
+      --dark-gray: #121212;
+      --accent-yellow: #ffc107;
+      --primary-color: #185adb;
+      --primary-dark: #0a1931;
+      --text-dark: #f1f1f1;
+      --card-bg: #1a2233;
+      --section-bg: #181c2f;
+      --footer-bg: #101522;
+    }
+    body {
+      background-color: var(--dark-blue);
+      color: var(--text-dark);
+    }
+    .navbar {
+      background: var(--footer-bg) !important;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    .navbar .nav-link {
+      color: var(--text-dark) !important;
+    }
+    .navbar .nav-link.active, .navbar .nav-link:hover {
+      color: var(--accent-yellow) !important;
+    }
+    .dropdown-menu {
+      background: var(--card-bg);
+      color: var(--text-dark);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .dropdown-item {
+      color: var(--text-dark);
+    }
+    .dropdown-item:hover {
+      background: var(--secondary-blue);
+      color: var(--accent-yellow);
+    }
+    .hero-section {
+      background: var(--section-bg);
+    }
+    .card, .service-card, .feature-box {
+      background: var(--card-bg);
+      color: var(--text-dark);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .about-section, .features-section, .services-section {
+      background: var(--section-bg);
+    }
+    .footer {
+      background-color: var(--footer-bg);
+      color: var(--text-dark);
+    }
+    .footer-links a {
+      color: #b0b8c1;
+    }
+    .footer-links a:hover {
+      color: var(--accent-yellow);
+    }
+    .contact-section {
+      background: linear-gradient(135deg, var(--footer-bg), var(--primary-blue));
+      color: var(--text-dark);
+    }
+    .form-control, .form-select {
+      background: #232946;
+      color: var(--text-dark);
+      border: 1px solid #2d3a4a;
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--accent-yellow);
+      background: #232946;
+      color: var(--text-dark);
+    }
+    .btn-hero, .about-btn, .btn-submit, .btn-primary {
+      background: var(--accent-yellow);
+      color: var(--dark-blue) !important;
+    }
+    .btn-hero:hover, .about-btn:hover, .btn-submit:hover, .btn-primary:hover {
+      background: var(--secondary-blue);
+      color: var(--accent-yellow) !important;
+    }
+    .section-title {
+      color: var(--accent-yellow);
+    }
+    .service-icon, .feature-icon {
+      color: var(--accent-yellow);
+    }
+    .back-to-top {
+      background: var(--accent-yellow);
+      color: var(--dark-blue);
+    }
+    .back-to-top:hover {
+      background: var(--secondary-blue);
+      color: var(--accent-yellow);
+    }
+    /* Offcanvas for mobile nav */
+    @media (max-width: 991px) {
+      .navbar-collapse {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 80vw;
+        height: 100vh;
+        background: var(--footer-bg);
+        z-index: 1050;
+        box-shadow: -2px 0 20px rgba(0,0,0,0.7);
+        padding: 2rem 1rem;
+        transition: transform 0.3s ease;
+      }
+      .navbar-collapse.collapse:not(.show) {
+        transform: translateX(100%);
+      }
+      .navbar-collapse.show {
+        transform: translateX(0);
+      }
+      .dropdown-menu {
+        position: static;
+        float: none;
+        width: 100%;
+        margin: 0;
+        background: var(--card-bg);
+        box-shadow: none;
+      }
+      .dropdown-item {
+        font-size: 1.1rem;
+        padding: 1rem 1.5rem;
+      }
+    }
+    /* Section divider */
+    .section-divider {
+      width: 80px;
+      height: 4px;
+      background: var(--accent-yellow);
+      margin: 24px auto 32px auto;
+      border-radius: 2px;
+    }
+    /* Modal for Zoho form */
+    .modal-backdrop {
+      background: rgba(10,25,49,0.85);
+    }
+    .modal-content {
+      background: var(--card-bg);
+      color: var(--text-dark);
+      border-radius: 16px;
+      border: none;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+    }
+    .modal-header {
+      border-bottom: 1px solid #222;
+    }
+    .modal-title {
+      color: var(--accent-yellow);
+    }
+    .modal-body iframe {
+      width: 100%;
+      min-height: 500px;
+      border: none;
+      border-radius: 8px;
+      background: #232946;
+    }
+  </style>
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="text-center section-title" data-aos="fade-up">Contact Us</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-8 text-center" data-aos="fade-up">
+          <p style="font-size:1.2rem;">Have questions or need a custom solution? Reach out to us and our team will get back to you promptly.</p>
+          <button class="btn btn-hero btn-lg mt-4" data-bs-toggle="modal" data-bs-target="#zohoModal">Open Contact Form</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Zoho Form Modal -->
+  <div class="modal fade" id="zohoModal" tabindex="-1" aria-labelledby="zohoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="zohoModalLabel">Contact Us - Ledger Bros</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <iframe src="https://forms.zohopublic.com/yourformurl" title="Zoho Form"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
