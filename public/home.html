@@ -30,6 +30,9 @@
       --light-gray: #f8f9fa;
       --dark-gray: #343a40;
       --accent-yellow: #ffc107;
+      --primary-color: #007bff;
+      --primary-dark: #0056b3;
+      --text-dark: #333;
     }
     
     /* Modern Loading Animation - Fixed with fallbacks */
@@ -1371,150 +1374,141 @@
   </nav>
 
   <!-- Hero Section with Video Background -->
-  <section class="hero-section">
+  <section class="hero-section d-flex align-items-center" style="min-height:100vh;">
     <!-- Background Video -->
-    <video autoplay muted loop playsinline class="hero-video" onerror="this.parentNode.innerHTML='<div style=\'position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg, var(--dark-blue), var(--primary-blue));z-index:-1;\'></div>'">
+    <video autoplay muted loop playsinline class="hero-video" onerror="this.parentNode.innerHTML='<div style=\'position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg, var(--primary-color), var(--primary-dark));z-index:-1;\'></div>'">
       <source src="vid.mp4" type="video/mp4">
       Your browser does not support HTML5 video.
     </video>
-
     <!-- Dark overlay -->
     <div class="overlay"></div>
-
     <!-- Hero Content -->
-    <div class="container">
-      <div class="hero-content">
-        <h1 class="display-4 fw-bold">Your Trusted Partner for Business Solutions</h1>
-        <p class="lead mb-4">
-          Professional services for company registration, tax filing, and financial compliance to help your business thrive.
-        </p>
-        <a href="#services" class="btn btn-hero">Explore More</a>
+    <div class="container position-relative" style="z-index:2;">
+      <div class="hero-content py-5">
+        <h1 class="display-3 fw-bold mb-4" style="color:var(--primary-color); letter-spacing:0.01em;">Your Trusted Partner for Business Solutions</h1>
+        <div class="section-divider"></div>
+        <p class="lead mb-5" style="color:var(--text-dark); max-width:600px; margin:auto; font-size:1.4rem;">Professional services for company registration, tax filing, and financial compliance to help your business thrive.</p>
+        <a href="#services" class="btn btn-hero btn-lg">Explore More</a>
       </div>
     </div>
   </section>
 
   <!-- Services Section -->
-  <section id="services" class="services-section">
+  <section id="services" class="section">
     <div class="container">
-      <h2 class="text-center section-title" data-aos="fade-up">Our Comprehensive Services</h2>
-      <p class="text-center mb-5" data-aos="fade-up" data-aos-delay="100">End-to-end business solutions to help you start, manage and grow your business</p>
-      
+      <h2 class="section-title" data-aos="fade-up">Our Comprehensive Services</h2>
+      <div class="section-divider"></div>
+      <p class="text-center mb-5" data-aos="fade-up" data-aos-delay="100" style="color:var(--text-dark); font-size:1.2rem;">End-to-end business solutions to help you start, manage and grow your business</p>
       <div class="row g-4">
         <!-- Company Registration Services -->
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="service-card h-100">
-            <div class="service-icon">
-              <i class="fas fa-building"></i>
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="service-icon mb-3"><i class="fas fa-building"></i></div>
+              <h3 class="card-title">Company Registration</h3>
+              <ul class="list-unstyled mb-3">
+                <li><i class="fas fa-check text-success"></i> Private Limited Company</li>
+                <li><i class="fas fa-check text-success"></i> Limited Liability Partnership (LLP)</li>
+                <li><i class="fas fa-check text-success"></i> One Person Company (OPC)</li>
+                <li><i class="fas fa-check text-success"></i> Section 8 Company (NGO)</li>
+                <li><i class="fas fa-check text-success"></i> Nidhi Company</li>
+                <li><i class="fas fa-check text-success"></i> Producer Company</li>
+              </ul>
+              <a href="#" class="learn-more">Explore All Options <i class="fas fa-arrow-right"></i></a>
             </div>
-            <h3>Company Registration</h3>
-            <ul class="service-features">
-              <li><i class="fas fa-check"></i> Private Limited Company</li>
-              <li><i class="fas fa-check"></i> Limited Liability Partnership (LLP)</li>
-              <li><i class="fas fa-check"></i> One Person Company (OPC)</li>
-              <li><i class="fas fa-check"></i> Section 8 Company (NGO)</li>
-              <li><i class="fas fa-check"></i> Nidhi Company</li>
-              <li><i class="fas fa-check"></i> Producer Company</li>
-            </ul>
-            <a href="#" class="learn-more">Explore All Options <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
-        
         <!-- Compliance & Tax Services -->
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="service-card h-100">
-            <div class="service-icon">
-              <i class="fas fa-file-invoice-dollar"></i>
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="service-icon mb-3"><i class="fas fa-file-invoice-dollar"></i></div>
+              <h3 class="card-title">Compliance & Tax</h3>
+              <ul class="list-unstyled mb-3">
+                <li><i class="fas fa-check text-success"></i> GST Registration & Filing</li>
+                <li><i class="fas fa-check text-success"></i> Income Tax Return Filing</li>
+                <li><i class="fas fa-check text-success"></i> TDS Return Filing</li>
+                <li><i class="fas fa-check text-success"></i> Company Annual Compliance</li>
+                <li><i class="fas fa-check text-success"></i> LLP Annual Compliance</li>
+                <li><i class="fas fa-check text-success"></i> ROC Compliance Services</li>
+              </ul>
+              <a href="#" class="learn-more">View All Services <i class="fas fa-arrow-right"></i></a>
             </div>
-            <h3>Compliance & Tax</h3>
-            <ul class="service-features">
-              <li><i class="fas fa-check"></i> GST Registration & Filing</li>
-              <li><i class="fas fa-check"></i> Income Tax Return Filing</li>
-              <li><i class="fas fa-check"></i> TDS Return Filing</li>
-              <li><i class="fas fa-check"></i> Company Annual Compliance</li>
-              <li><i class="fas fa-check"></i> LLP Annual Compliance</li>
-              <li><i class="fas fa-check"></i> ROC Compliance Services</li>
-            </ul>
-            <a href="#" class="learn-more">View All Services <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
-        
         <!-- Intellectual Property Services -->
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
-          <div class="service-card h-100">
-            <div class="service-icon">
-              <i class="fas fa-trademark"></i>
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="service-icon mb-3"><i class="fas fa-trademark"></i></div>
+              <h3 class="card-title">Intellectual Property</h3>
+              <ul class="list-unstyled mb-3">
+                <li><i class="fas fa-check text-success"></i> Trademark Registration</li>
+                <li><i class="fas fa-check text-success"></i> Copyright Registration</li>
+                <li><i class="fas fa-check text-success"></i> Patent Registration</li>
+                <li><i class="fas fa-check text-success"></i> Design Registration</li>
+                <li><i class="fas fa-check text-success"></i> Trademark Objection Reply</li>
+                <li><i class="fas fa-check text-success"></i> IP Portfolio Management</li>
+              </ul>
+              <a href="#" class="learn-more">Protect Your Brand <i class="fas fa-arrow-right"></i></a>
             </div>
-            <h3>Intellectual Property</h3>
-            <ul class="service-features">
-              <li><i class="fas fa-check"></i> Trademark Registration</li>
-              <li><i class="fas fa-check"></i> Copyright Registration</li>
-              <li><i class="fas fa-check"></i> Patent Registration</li>
-              <li><i class="fas fa-check"></i> Design Registration</li>
-              <li><i class="fas fa-check"></i> Trademark Objection Reply</li>
-              <li><i class="fas fa-check"></i> IP Portfolio Management</li>
-            </ul>
-            <a href="#" class="learn-more">Protect Your Brand <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
-        
         <!-- Startup & Business Services -->
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="service-card h-100">
-            <div class="service-icon">
-              <i class="fas fa-rocket"></i>
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="service-icon mb-3"><i class="fas fa-rocket"></i></div>
+              <h3 class="card-title">Startup & Business</h3>
+              <ul class="list-unstyled mb-3">
+                <li><i class="fas fa-check text-success"></i> Startup India Registration</li>
+                <li><i class="fas fa-check text-success"></i> MSME/Udyam Registration</li>
+                <li><i class="fas fa-check text-success"></i> Import Export Code (IEC)</li>
+                <li><i class="fas fa-check text-success"></i> FSSAI License</li>
+                <li><i class="fas fa-check text-success"></i> Shop & Establishment License</li>
+                <li><i class="fas fa-check text-success"></i> Business Plan Consulting</li>
+              </ul>
+              <a href="#" class="learn-more">Grow Your Business <i class="fas fa-arrow-right"></i></a>
             </div>
-            <h3>Startup & Business</h3>
-            <ul class="service-features">
-              <li><i class="fas fa-check"></i> Startup India Registration</li>
-              <li><i class="fas fa-check"></i> MSME/Udyam Registration</li>
-              <li><i class="fas fa-check"></i> Import Export Code (IEC)</li>
-              <li><i class="fas fa-check"></i> FSSAI License</li>
-              <li><i class="fas fa-check"></i> Shop & Establishment License</li>
-              <li><i class="fas fa-check"></i> Business Plan Consulting</li>
-            </ul>
-            <a href="#" class="learn-more">Grow Your Business <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
-        
         <!-- Accounting & Financial Services -->
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="service-card h-100">
-            <div class="service-icon">
-              <i class="fas fa-calculator"></i>
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="service-icon mb-3"><i class="fas fa-calculator"></i></div>
+              <h3 class="card-title">Accounting & Finance</h3>
+              <ul class="list-unstyled mb-3">
+                <li><i class="fas fa-check text-success"></i> Bookkeeping Services</li>
+                <li><i class="fas fa-check text-success"></i> Payroll Processing</li>
+                <li><i class="fas fa-check text-success"></i> Financial Statement Preparation</li>
+                <li><i class="fas fa-check text-success"></i> Tax Planning & Advisory</li>
+                <li><i class="fas fa-check text-success"></i> GST Audit Services</li>
+                <li><i class="fas fa-check text-success"></i> Virtual CFO Services</li>
+              </ul>
+              <a href="#" class="learn-more">Manage Your Finances <i class="fas fa-arrow-right"></i></a>
             </div>
-            <h3>Accounting & Finance</h3>
-            <ul class="service-features">
-              <li><i class="fas fa-check"></i> Bookkeeping Services</li>
-              <li><i class="fas fa-check"></i> Payroll Processing</li>
-              <li><i class="fas fa-check"></i> Financial Statement Preparation</li>
-              <li><i class="fas fa-check"></i> Tax Planning & Advisory</li>
-              <li><i class="fas fa-check"></i> GST Audit Services</li>
-              <li><i class="fas fa-check"></i> Virtual CFO Services</li>
-            </ul>
-            <a href="#" class="learn-more">Manage Your Finances <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
-        
         <!-- Web & Digital Services -->
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
-          <div class="service-card h-100">
-            <div class="service-icon">
-              <i class="fas fa-code"></i>
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="service-icon mb-3"><i class="fas fa-code"></i></div>
+              <h3 class="card-title">Web & Digital</h3>
+              <ul class="list-unstyled mb-3">
+                <li><i class="fas fa-check text-success"></i> Website Design & Development</li>
+                <li><i class="fas fa-check text-success"></i> E-commerce Solutions</li>
+                <li><i class="fas fa-check text-success"></i> SEO Services</li>
+                <li><i class="fas fa-check text-success"></i> Digital Marketing</li>
+                <li><i class="fas fa-check text-success"></i> Logo & Branding</li>
+                <li><i class="fas fa-check text-success"></i> Content Writing</li>
+              </ul>
+              <a href="#" class="learn-more">Build Online Presence <i class="fas fa-arrow-right"></i></a>
             </div>
-            <h3>Web & Digital</h3>
-            <ul class="service-features">
-              <li><i class="fas fa-check"></i> Website Design & Development</li>
-              <li><i class="fas fa-check"></i> E-commerce Solutions</li>
-              <li><i class="fas fa-check"></i> SEO Services</li>
-              <li><i class="fas fa-check"></i> Digital Marketing</li>
-              <li><i class="fas fa-check"></i> Logo & Branding</li>
-              <li><i class="fas fa-check"></i> Content Writing</li>
-            </ul>
-            <a href="#" class="learn-more">Build Online Presence <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
       </div>
-      
       <div class="text-center mt-5" data-aos="fade-up">
         <a href="#contact" class="btn btn-primary btn-lg">Get Customized Solution</a>
       </div>
