@@ -1,1961 +1,2154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ledger Bros - Business Services & Financial Solutions</title>
-  <meta name="description" content="Professional company registration, GST filing, trademark services and financial solutions for your business">
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-
-  <!-- AOS CSS for animations -->
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-
-  <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
-
-  <!-- Font Awesome -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ledger Bros - Premium Business Solutions | Elevating Enterprises Worldwide</title>
+  <meta name="description" content="Premium business services with cutting-edge solutions. Company registration, tax optimization, legal compliance, and strategic consulting. Trusted by Fortune 500 companies.">
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Icons & Libraries -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- GSAP for advanced animations -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
 
   <style>
+    /* Premium Dark Color System */
     :root {
-      --primary-blue: #0056b3;
-      --secondary-blue: #007bff;
-      --dark-blue: #003366;
-      --light-gray: #f8f9fa;
-      --dark-gray: #343a40;
-      --accent-yellow: #ffc107;
+      /* Dark Theme Palette */
+      --primary-dark: #0a0a0a;
+      --secondary-dark: #111111;
+      --accent-dark: #1a1a1a;
+      --surface-dark: #1e1e1e;
+      --elevated-dark: #252525;
+      
+      /* Accent Colors */
+      --gold-primary: #ffd700;
+      --gold-secondary: #ffed4e;
+      --gold-dark: #b8860b;
+      --purple-primary: #8b5cf6;
+      --purple-secondary: #a78bfa;
+      --blue-primary: #3b82f6;
+      --blue-secondary: #60a5fa;
+      --emerald-primary: #10b981;
+      --emerald-secondary: #34d399;
+      
+      /* Gradients */
+      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-gold: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+      --gradient-purple: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+      --gradient-dark: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      --gradient-hero: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2d1b69 100%);
+      
+      /* Text Colors */
+      --text-primary: #ffffff;
+      --text-secondary: #e5e5e5;
+      --text-muted: #a0a0a0;
+      --text-accent: #ffd700;
+      
+      /* Shadows & Effects */
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.2);
+      --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.3);
+      --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.4);
+      --shadow-glow: 0 0 20px rgba(255, 215, 0, 0.3);
+      --shadow-purple: 0 0 30px rgba(139, 92, 246, 0.4);
+      
+      --blur-glass: blur(20px);
+      --border-glass: 1px solid rgba(255, 255, 255, 0.1);
+      
+      /* Transitions */
+      --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      
+      /* Spacing & Sizes */
+      --border-radius-sm: 8px;
+      --border-radius-md: 12px;
+      --border-radius-lg: 16px;
+      --border-radius-xl: 24px;
     }
-    
-    /* Modern Loading Animation - Fixed with fallbacks */
-    .loading-overlay {
+
+    /* Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background: var(--primary-dark);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Scrollbar Styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--secondary-dark);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--gradient-gold);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--gold-dark);
+    }
+
+    /* Premium Navbar */
+    .navbar {
       position: fixed;
       top: 0;
       left: 0;
+      right: 0;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: var(--blur-glass);
+      border-bottom: var(--border-glass);
+      z-index: 1000;
+      transition: var(--transition-smooth);
+      padding: 1rem 0;
+    }
+
+    .navbar.scrolled {
+      background: rgba(10, 10, 10, 0.98);
+      box-shadow: var(--shadow-lg);
+      padding: 0.75rem 0;
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 800;
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: var(--transition-smooth);
+    }
+
+    .nav-logo:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(var(--shadow-glow));
+    }
+
+    .nav-logo i {
+      font-size: 2.5rem;
+      background: var(--gradient-purple);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-weight: 500;
+      font-size: 1rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--border-radius-lg);
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
       width: 100%;
       height: 100%;
-      background-color: white;
+      background: var(--gradient-purple);
+      transition: var(--transition-smooth);
+      z-index: -1;
+    }
+
+    .nav-link:hover::before,
+    .nav-link.active::before {
+      left: 0;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--text-primary);
+      transform: translateY(-2px);
+    }
+
+    .nav-cta {
+      background: var(--gradient-gold);
+      color: var(--primary-dark) !important;
+      padding: 1rem 2rem !important;
+      font-weight: 700;
+      border-radius: var(--border-radius-xl);
+      box-shadow: var(--shadow-md);
+      transition: var(--transition-bounce);
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: var(--shadow-xl);
+      color: var(--primary-dark) !important;
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: var(--text-primary);
+      cursor: pointer;
+    }
+
+    /* Hero Section - Premium Dark */
+    .hero {
+      min-height: 100vh;
+      background: var(--gradient-hero);
+      position: relative;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      z-index: 9999;
-      transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-    }
-    
-    .loading-logo {
-      width: 120px;
-      height: auto;
-      margin-bottom: 30px;
-      animation: logoFloat 3s ease-in-out infinite;
-      filter: drop-shadow(0 5px 15px rgba(0, 86, 179, 0.3));
-      /* Fallback logo in case image doesn't load */
-      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
-      border-radius: 8px;
-      padding: 10px;
-      color: white;
-      text-align: center;
-      font-weight: bold;
-    }
-    
-    .loading-spinner {
-      position: relative;
-      width: 80px;
-      height: 80px;
-    }
-    
-    .loading-spinner div {
-      position: absolute;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: var(--primary-blue);
-      animation: loading-spinner 1.2s linear infinite;
-      box-shadow: 0 0 10px rgba(0, 86, 179, 0.5);
-    }
-    
-    /* Dot positions */
-    .loading-spinner div:nth-child(1) { top: 8px; left: 8px; animation-delay: 0s; }
-    .loading-spinner div:nth-child(2) { top: 8px; left: 32px; animation-delay: -0.4s; }
-    .loading-spinner div:nth-child(3) { top: 8px; left: 56px; animation-delay: -0.8s; }
-    .loading-spinner div:nth-child(4) { top: 32px; left: 8px; animation-delay: -0.4s; }
-    .loading-spinner div:nth-child(5) { top: 32px; left: 32px; animation-delay: -0.8s; }
-    .loading-spinner div:nth-child(6) { top: 32px; left: 56px; animation-delay: -1.2s; }
-    .loading-spinner div:nth-child(7) { top: 56px; left: 8px; animation-delay: -0.8s; }
-    .loading-spinner div:nth-child(8) { top: 56px; left: 32px; animation-delay: -1.2s; }
-    .loading-spinner div:nth-child(9) { top: 56px; left: 56px; animation-delay: -1.6s; }
-    
-    @keyframes loading-spinner {
-      0%, 100% { 
-        opacity: 1; 
-        transform: scale(1) rotate(0deg);
-        background: var(--primary-blue);
-      }
-      50% { 
-        opacity: 0.7; 
-        transform: scale(0.6) rotate(10deg);
-        background: var(--secondary-blue);
-      }
-    }
-    
-    @keyframes logoFloat {
-      0%, 100% { transform: translateY(0) rotate(-2deg); }
-      50% { transform: translateY(-15px) rotate(2deg); }
-    }
-    
-    .loading-progress {
-      width: 250px;
-      height: 6px;
-      background: rgba(0, 86, 179, 0.1);
-      margin-top: 40px;
-      border-radius: 3px;
-      overflow: hidden;
-      position: relative;
-    }
-    
-    .loading-progress-bar {
-      height: 100%;
-      width: 0;
-      background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
-      transition: width 0.4s ease-out;
-      position: relative;
       overflow: hidden;
     }
-    
-    .loading-progress-bar::after {
+
+    .hero::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.8) 50%,
-        rgba(255, 255, 255, 0) 100%
-      );
-      animation: shimmer 2s infinite;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="4" height="4" patternUnits="userSpaceOnUse"><path d="M 4 0 L 0 0 0 4" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+      animation: heroBackground 20s ease-in-out infinite;
     }
-    
-    @keyframes shimmer {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
+
+    @keyframes heroBackground {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.8; }
     }
-    
-    /* Hide after load */
-    body.loaded .loading-overlay {
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(-20px);
-    }
-    
-    /* Modern Body Styles */
-    body {
-      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #333;
-      line-height: 1.7;
-      background-color: #f9f9f9;
-      overflow-x: hidden;
-    }
-    
-    /* Modern Navbar */
-    .navbar {
-      background: var(--dark-blue) !important;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      padding: 15px 0;
-      transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
-      z-index: 1030;
-      position: fixed;
-      width: 100%;
-      top: 0;
-    }
-    
-    .navbar.scrolled {
-      padding: 10px 0;
-      box-shadow: 0 10px 30px rgba(0, 86, 179, 0.2);
-    }
-    
-    .navbar-brand {
-      font-weight: 700;
-      font-size: 1.5rem;
-      letter-spacing: 0.5px;
-      transition: all 0.3s ease;
-    }
-    
-    .navbar-brand:hover {
-      transform: translateY(-2px);
-    }
-    
-    .navbar-brand img {
-      height: 40px;
-      margin-right: 10px;
-      transition: all 0.3s ease;
-    }
-    
-    .navbar-brand:hover img {
-      transform: rotate(-5deg);
-    }
-    
-    .nav-link {
-      font-weight: 500;
-      padding: 8px 15px !important;
-      margin: 0 5px;
-      color: white !important;
-      position: relative;
-      transition: all 0.3s ease;
-    }
-    
-    .nav-link::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 2px;
-      background: var(--accent-yellow);
-      transition: width 0.3s ease;
-    }
-    
-    .nav-link:hover::before,
-    .nav-link.active::before {
-      width: 70%;
-    }
-    
-    .nav-link:hover, 
-    .nav-link.active {
-      color: var(--accent-yellow) !important;
-      transform: translateY(-2px);
-    }
-    
-    .dropdown-menu {
-      border: none;
-      background: white;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      opacity: 0;
-      display: block;
-      visibility: hidden;
-      transform: translateY(10px);
-    }
-    
-    .dropdown:hover .dropdown-menu {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-    
-    .dropdown-item {
-      padding: 10px 20px;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .dropdown-item::before {
-      content: '';
+
+    .particles-canvas {
       position: absolute;
       top: 0;
-      left: -100%;
+      left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(0, 86, 179, 0.1), transparent);
-      transition: all 0.5s ease;
+      z-index: 1;
     }
-    
-    .dropdown-item:hover {
-      background: rgba(0, 86, 179, 0.05);
-      color: var(--primary-blue);
-      padding-left: 25px;
-    }
-    
-    .dropdown-item:hover::before {
-      left: 100%;
-    }
-    
-    /* Modern Hero Section */
-    .hero-section {
+
+    .hero-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
       position: relative;
-      color: white;
-      padding: 180px 0 120px;
-      overflow: hidden;
-      min-height: 100vh;
-      display: flex;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
       align-items: center;
     }
-    
-    .hero-video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
-    
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 51, 102, 0.7);
-      z-index: -1;
-    }
-    
+
     .hero-content {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      width: 100%;
+      animation: fadeInLeft 1s ease-out;
     }
-    
-    .hero-content h1 {
-      font-weight: 800;
-      font-size: 3.5rem;
-      margin-bottom: 20px;
-      line-height: 1.2;
-      position: relative;
-      display: inline-block;
-    }
-    
-    .hero-content h1::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 70px;
-      height: 4px;
-      background: var(--accent-yellow);
-      border-radius: 2px;
-    }
-    
-    .hero-content p {
-      font-size: 1.3rem;
-      margin-bottom: 30px;
-      opacity: 0.9;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    .btn-hero {
-      background-color: var(--accent-yellow);
-      color: var(--dark-blue);
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: var(--blur-glass);
+      border: var(--border-glass);
+      padding: 1rem 2rem;
+      border-radius: var(--border-radius-xl);
+      font-size: 1rem;
       font-weight: 600;
-      padding: 15px 40px;
-      border-radius: 50px;
+      margin-bottom: 2rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .hero-badge i {
+      color: var(--gold-primary);
+      font-size: 1.2rem;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 2rem;
+      background: linear-gradient(135deg, #ffffff 0%, #ffd700 50%, #ffffff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.3));
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--text-secondary);
+      margin-bottom: 3rem;
+      line-height: 1.6;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1.25rem 2.5rem;
+      border-radius: var(--border-radius-lg);
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition-bounce);
+      cursor: pointer;
       border: none;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      font-size: 1.1rem;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 10px 20px rgba(0, 86, 179, 0.3);
-      z-index: 1;
-      font-size: 1.1rem;
-      margin-top: 20px;
     }
-    
-    .btn-hero::before {
+
+    .btn::before {
       content: '';
       position: absolute;
       top: 0;
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-      transition: all 0.6s ease;
-      z-index: -1;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: var(--transition-smooth);
     }
-    
-    .btn-hero:hover {
-      background-color: white;
-      transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 15px 30px rgba(0, 86, 179, 0.4);
-    }
-    
-    .btn-hero:hover::before {
+
+    .btn:hover::before {
       left: 100%;
     }
-    
-    /* Simple Particle Background */
-    .particles {
+
+    .btn-primary {
+      background: var(--gradient-gold);
+      color: var(--primary-dark);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: var(--shadow-xl);
+      color: var(--primary-dark);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-primary);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: var(--blur-glass);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: var(--text-primary);
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .hero-features {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-feature {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .hero-feature i {
+      color: var(--gold-primary);
+      font-size: 1.2rem;
+    }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fadeInRight 1s ease-out;
+    }
+
+    .hero-graphic {
+      width: 500px;
+      height: 500px;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      position: relative;
+      animation: heroFloat 6s ease-in-out infinite;
+      box-shadow: var(--shadow-xl);
+    }
+
+    @keyframes heroFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-30px) rotate(10deg); }
+    }
+
+    .hero-graphic::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      right: -20px;
+      bottom: -20px;
+      background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+      border-radius: 50%;
+      animation: rotate 12s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Premium Stats Section */
+    .stats {
+      background: var(--secondary-dark);
+      padding: 5rem 0;
+      position: relative;
+      margin-top: -3rem;
+      z-index: 3;
+    }
+
+    .stats-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      background: var(--elevated-dark);
+      padding: 4rem;
+      border-radius: var(--border-radius-xl);
+      box-shadow: var(--shadow-xl);
+      border: var(--border-glass);
+      backdrop-filter: var(--blur-glass);
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 2rem;
+      border-radius: var(--border-radius-lg);
+      background: var(--gradient-dark);
+      transition: var(--transition-bounce);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+      transition: var(--transition-smooth);
+    }
+
+    .stat-item:hover::before {
+      left: 100%;
+    }
+
+    .stat-item:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: var(--shadow-purple);
+    }
+
+    .stat-icon {
+      font-size: 3rem;
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+      filter: drop-shadow(var(--shadow-glow));
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-label {
+      font-weight: 500;
+      text-transform: uppercase;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    /* Premium Services Section */
+    .services {
+      padding: 8rem 0;
+      background: var(--primary-dark);
+      position: relative;
+    }
+
+    .services::before {
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+      animation: servicesBackground 15s ease-in-out infinite;
     }
-    
-    .particle {
-      position: absolute;
-      background: rgba(255, 255, 255, 0.3);
-      border-radius: 50%;
-      animation: floatParticle linear infinite;
+
+    @keyframes servicesBackground {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
     }
-    
-    @keyframes floatParticle {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0;
-      }
-      10% {
-        opacity: 1;
-      }
-      90% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-1000px) rotate(720deg);
-        opacity: 0;
-      }
-    }
-    
-    /* Modern Services Section */
-    .services-section {
-      padding: 100px 0;
-      background-color: var(--light-gray);
+
+    .services-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
       position: relative;
-      overflow: hidden;
+      z-index: 2;
     }
-    
-    .section-title {
-      color: var(--dark-blue);
-      font-weight: 800;
-      font-size: 2.8rem;
-      margin-bottom: 60px;
-      position: relative;
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+
+    .section-badge {
       display: inline-block;
+      background: var(--gradient-purple);
+      color: var(--text-primary);
+      padding: 1rem 2rem;
+      border-radius: var(--border-radius-xl);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.1em;
+      box-shadow: var(--shadow-md);
     }
-    
-    .section-title::after {
-      content: '';
-      position: absolute;
-      width: 50%;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
-      bottom: -15px;
-      left: 0;
-      border-radius: 2px;
-      animation: underlineGrow 1.5s ease-out forwards;
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 5vw, 4rem);
+      font-weight: 800;
+      margin-bottom: 2rem;
+      line-height: 1.2;
+      background: linear-gradient(135deg, #ffffff 0%, #ffd700 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    
-    @keyframes underlineGrow {
-      from { width: 0; }
-      to { width: 50%; }
+
+    .section-description {
+      font-size: 1.3rem;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
     }
-    
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 3rem;
+    }
+
     .service-card {
-      background: white;
-      border-radius: 15px;
-      padding: 40px 30px;
-      margin-bottom: 30px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      background: var(--elevated-dark);
+      backdrop-filter: var(--blur-glass);
+      border-radius: var(--border-radius-xl);
+      padding: 3rem;
+      box-shadow: var(--shadow-lg);
+      border: var(--border-glass);
+      transition: var(--transition-bounce);
       position: relative;
       overflow: hidden;
-      z-index: 1;
-      border: 1px solid rgba(0, 0, 0, 0.03);
+      height: 100%;
     }
-    
+
     .service-card::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(0, 86, 179, 0.03), rgba(0, 123, 255, 0.05));
-      z-index: -1;
-      opacity: 0;
-      transition: all 0.5s ease;
-    }
-    
-    .service-card:hover {
-      transform: translateY(-15px) scale(1.03);
-      box-shadow: 0 20px 40px rgba(0, 86, 179, 0.15);
-    }
-    
-    .service-card:hover::before {
-      opacity: 1;
-    }
-    
-    .service-icon {
-      font-size: 2.8rem;
-      color: var(--primary-blue);
-      margin-bottom: 25px;
-      transition: all 0.5s ease;
-    }
-    
-    .service-card:hover .service-icon {
-      transform: rotateY(180deg) scale(1.2);
-      color: var(--secondary-blue);
-    }
-    
-    .service-card h3 {
-      font-weight: 700;
-      margin-bottom: 15px;
-      position: relative;
-      display: inline-block;
-    }
-    
-    .service-card h3::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      width: 40px;
-      height: 3px;
-      background: var(--accent-yellow);
-      transition: all 0.5s ease;
-    }
-    
-    .service-card:hover h3::after {
-      width: 80px;
-    }
-    
-    .service-card p {
-      color: #666;
-      margin-bottom: 20px;
-    }
-    
-    .service-card .learn-more {
-      color: var(--primary-blue);
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      transition: all 0.3s ease;
-    }
-    
-    .service-card .learn-more i {
-      margin-left: 8px;
-      transition: all 0.3s ease;
-    }
-    
-    .service-card:hover .learn-more {
-      color: var(--secondary-blue);
-      transform: translateX(5px);
-    }
-    
-    .service-card:hover .learn-more i {
-      transform: translateX(5px);
-    }
-    
-    /* Modern About Section */
-    .about-section {
-      padding: 100px 0;
-      background-color: white;
-      position: relative;
-    }
-    
-    .about-img-container {
-      position: relative;
-      perspective: 1000px;
-    }
-    
-    .about-img {
-      border-radius: 15px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-      transform-style: preserve-3d;
-      transition: all 0.5s ease;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .about-img-container:hover .about-img {
-      transform: rotateY(-5deg) rotateX(5deg) translateY(-10px);
-      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.2);
-    }
-    
-    .about-img-container::before {
-      content: '';
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      left: -20px;
-      bottom: -20px;
-      background: linear-gradient(45deg, var(--primary-blue), var(--secondary-blue));
-      border-radius: 15px;
-      z-index: 0;
-      opacity: 0.1;
-      transition: all 0.5s ease;
-    }
-    
-    .about-img-container:hover::before {
-      transform: translate(-10px, 10px);
-    }
-    
-    .about-content h2 {
-      color: var(--dark-blue);
-      font-weight: 800;
-      margin-bottom: 30px;
-      position: relative;
-    }
-    
-    .about-content h2::after {
-      content: '';
-      position: absolute;
-      bottom: -15px;
-      left: 0;
-      width: 70px;
+      right: 0;
       height: 4px;
-      background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
-      border-radius: 2px;
-    }
-    
-    .about-content p {
-      color: #555;
-      margin-bottom: 20px;
-      font-size: 1.1rem;
-      line-height: 1.8;
-    }
-    
-    .about-btn {
-      background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-      color: white;
-      font-weight: 600;
-      padding: 12px 35px;
-      border-radius: 50px;
-      border: none;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 10px 20px rgba(0, 86, 179, 0.3);
-      z-index: 1;
-    }
-    
-    .about-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-      transition: all 0.6s ease;
-      z-index: -1;
-    }
-    
-    .about-btn:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0, 86, 179, 0.4);
-    }
-    
-    .about-btn:hover::before {
-      left: 100%;
-    }
-    
-    /* Modern Features Section */
-    .features-section {
-      padding: 100px 0;
-      background-color: var(--light-gray);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .feature-box {
-      text-align: center;
-      padding: 40px 30px;
-      background: white;
-      border-radius: 15px;
-      margin-bottom: 30px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-      border: 1px solid rgba(0, 0, 0, 0.03);
-    }
-    
-    .feature-box::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 5px;
-      background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
-      transition: all 0.5s ease;
+      background: var(--gradient-gold);
       transform: scaleX(0);
-      transform-origin: left;
+      transition: var(--transition-smooth);
     }
-    
-    .feature-box:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0, 86, 179, 0.15);
-    }
-    
-    .feature-box:hover::before {
+
+    .service-card:hover::before {
       transform: scaleX(1);
     }
-    
-    .feature-icon {
-      font-size: 3rem;
-      color: var(--primary-blue);
-      margin-bottom: 25px;
-      transition: all 0.5s ease;
+
+    .service-card:hover {
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: var(--shadow-xl);
+      background: var(--surface-dark);
     }
-    
-    .feature-box:hover .feature-icon {
-      transform: scale(1.2) rotate(15deg);
-      color: var(--secondary-blue);
-    }
-    
-    .feature-box h3 {
-      font-weight: 700;
-      margin-bottom: 15px;
-      position: relative;
-    }
-    
-    .feature-box p {
-      color: #666;
-    }
-    
-    /* Modern Contact Section */
-    .contact-section {
-      padding: 100px 0;
-      background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .contact-info h3 {
-      font-weight: 700;
-      margin-bottom: 30px;
-      position: relative;
-      display: inline-block;
-    }
-    
-    .contact-info h3::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 50px;
-      height: 3px;
-      background: var(--accent-yellow);
-    }
-    
-    .contact-info p {
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      font-size: 1.1rem;
-    }
-    
-    .contact-icon {
-      font-size: 1.5rem;
-      margin-right: 15px;
-      color: var(--accent-yellow);
-      min-width: 25px;
-    }
-    
-    .social-links {
-      display: flex;
-      margin-top: 30px;
-    }
-    
-    .social-links a {
-      color: white;
-      font-size: 1.3rem;
-      margin-right: 20px;
-      transition: all 0.3s ease;
+
+    .service-icon {
+      width: 5rem;
+      height: 5rem;
+      background: var(--gradient-purple);
+      border-radius: var(--border-radius-lg);
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
+      margin-bottom: 2rem;
+      color: var(--text-primary);
+      font-size: 2rem;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition-bounce);
     }
-    
-    .social-links a:hover {
-      color: var(--accent-yellow);
-      transform: translateY(-5px);
-      background: rgba(255, 255, 255, 0.2);
+
+    .service-card:hover .service-icon {
+      transform: scale(1.1) rotate(10deg);
+      box-shadow: var(--shadow-purple);
     }
-    
-    .contact-form {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      padding: 40px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+
+    .service-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
     }
-    
-    .form-control {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: white;
-      padding: 12px 15px;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      transition: all 0.3s ease;
+
+    .service-description {
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
     }
-    
-    .form-control:focus {
-      background: rgba(255, 255, 255, 0.2);
-      border-color: var(--accent-yellow);
-      box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
-      color: white;
+
+    .service-features {
+      list-style: none;
+      margin-bottom: 2.5rem;
     }
-    
-    .form-control::placeholder {
-      color: rgba(255, 255, 255, 0.7);
+
+    .service-features li {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      color: var(--text-secondary);
+      font-weight: 500;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      transition: var(--transition-smooth);
     }
-    
-    .form-select {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: white;
-      padding: 12px 15px;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      transition: all 0.3s ease;
+
+    .service-features li:last-child {
+      border-bottom: none;
     }
-    
-    .form-select:focus {
-      background: rgba(255, 255, 255, 0.2);
-      border-color: var(--accent-yellow);
-      box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
-      color: white;
+
+    .service-features li:hover {
+      color: var(--gold-primary);
+      transform: translateX(10px);
     }
-    
-    .btn-submit {
-      background: var(--accent-yellow);
-      color: var(--dark-blue);
+
+    .service-features li i {
+      color: var(--gold-primary);
+      font-size: 1rem;
+      width: 20px;
+      transition: var(--transition-smooth);
+    }
+
+    .service-features li:hover i {
+      color: var(--text-primary);
+      transform: scale(1.2);
+    }
+
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 2rem;
+      border-radius: var(--border-radius-lg);
+      background: var(--gradient-gold);
+      color: var(--primary-dark);
+      text-decoration: none;
       font-weight: 600;
-      padding: 12px 30px;
-      border-radius: 50px;
-      border: none;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: var(--transition-bounce);
+      box-shadow: var(--shadow-md);
+    }
+
+    .service-link:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: var(--shadow-xl);
+      color: var(--primary-dark);
+    }
+
+    /* Premium About Section */
+    .about {
+      padding: 8rem 0;
+      background: var(--secondary-dark);
       position: relative;
       overflow: hidden;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      z-index: 1;
-      width: 100%;
     }
-    
-    .btn-submit::before {
+
+    .about::before {
       content: '';
       position: absolute;
       top: 0;
-      left: -100%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="1" fill="rgba(255,215,0,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+    }
+
+    .about-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .about-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 5vw, 4rem);
+      font-weight: 800;
+      margin-bottom: 2rem;
+      line-height: 1.2;
+      background: linear-gradient(135deg, #ffffff 0%, #ffd700 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .about-content p {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .about-features {
+      list-style: none;
+      margin-bottom: 3rem;
+    }
+
+    .about-features li {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.5rem 0;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: var(--transition-smooth);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .about-features li:last-child {
+      border-bottom: none;
+    }
+
+    .about-features li:hover {
+      transform: translateX(15px);
+      color: var(--gold-primary);
+    }
+
+    .about-features li i {
+      color: var(--gold-primary);
+      background: rgba(255, 215, 0, 0.1);
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    }
+
+    .about-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .about-image {
       width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-      transition: all 0.6s ease;
-      z-index: -1;
+      max-width: 500px;
+      height: 400px;
+      border-radius: var(--border-radius-xl);
+      object-fit: cover;
+      box-shadow: var(--shadow-xl);
+      transition: var(--transition-bounce);
+      border: 3px solid var(--gold-primary);
     }
-    
-    .btn-submit:hover {
-      background: white;
-      transform: translateY(-3px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+
+    .about-image:hover {
+      transform: scale(1.05) rotate(-2deg);
+      box-shadow: 0 0 60px rgba(255, 215, 0, 0.4);
     }
-    
-    .btn-submit:hover::before {
-      left: 100%;
-    }
-    
-    /* Modern Footer */
-    .footer {
-      background-color: var(--dark-gray);
-      color: white;
-      padding: 80px 0 30px;
+
+    /* Our Reach Section */
+    .reach {
+      padding: 8rem 0;
+      background: var(--primary-dark);
       position: relative;
     }
-    
+
+    .reach::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+      animation: reachBackground 18s ease-in-out infinite;
+    }
+
+    @keyframes reachBackground {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 1; }
+    }
+
+    .reach-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .reach-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      margin-top: 4rem;
+    }
+
+    .reach-card {
+      background: var(--elevated-dark);
+      padding: 3rem;
+      border-radius: var(--border-radius-xl);
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      border: var(--border-glass);
+      transition: var(--transition-bounce);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .reach-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--gradient-purple);
+      opacity: 0;
+      transition: var(--transition-smooth);
+    }
+
+    .reach-card:hover::before {
+      opacity: 0.1;
+    }
+
+    .reach-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .reach-icon {
+      font-size: 4rem;
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .reach-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .reach-description {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Blog Section */
+    .blog {
+      padding: 8rem 0;
+      background: var(--secondary-dark);
+      position: relative;
+    }
+
+    .blog::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="lines" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 0 10 L 20 10" stroke="rgba(255,215,0,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23lines)"/></svg>');
+    }
+
+    .blog-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 3rem;
+      margin-top: 4rem;
+    }
+
+    .blog-card {
+      background: var(--elevated-dark);
+      border-radius: var(--border-radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: var(--border-glass);
+      transition: var(--transition-bounce);
+      position: relative;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .blog-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: var(--transition-smooth);
+    }
+
+    .blog-card:hover .blog-image {
+      transform: scale(1.1);
+    }
+
+    .blog-content {
+      padding: 2.5rem;
+    }
+
+    .blog-category {
+      background: var(--gradient-purple);
+      color: var(--text-primary);
+      padding: 0.5rem 1rem;
+      border-radius: var(--border-radius-sm);
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .blog-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+
+    .blog-excerpt {
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .blog-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .blog-meta i {
+      color: var(--gold-primary);
+    }
+
+    .blog-link {
+      color: var(--gold-primary);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition-smooth);
+    }
+
+    .blog-link:hover {
+      color: var(--text-primary);
+      transform: translateX(5px);
+    }
+
+    /* Premium Footer */
+    .footer {
+      background: var(--primary-dark);
+      padding: 5rem 0 2rem;
+      border-top: var(--border-glass);
+      position: relative;
+    }
+
     .footer::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 5px;
-      background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
     }
-    
-    .footer-logo {
-      margin-bottom: 20px;
-      max-width: 180px;
-      transition: all 0.3s ease;
-    }
-    
-    .footer-logo:hover {
-      transform: scale(1.05);
-    }
-    
-    .footer p {
-      color: #adb5bd;
-      margin-bottom: 20px;
-    }
-    
-    .footer-links h5 {
-      color: white;
-      font-weight: 700;
-      margin-bottom: 25px;
+
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
       position: relative;
-      display: inline-block;
+      z-index: 2;
     }
-    
-    .footer-links h5::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 40px;
-      height: 3px;
-      background: var(--accent-yellow);
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 3rem;
     }
-    
-    .footer-links ul {
-      list-style: none;
-      padding-left: 0;
+
+    .footer-brand h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    
-    .footer-links li {
-      margin-bottom: 12px;
+
+    .footer-brand p {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
     }
-    
-    .footer-links a {
-      color: #adb5bd;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      position: relative;
-      padding-left: 15px;
-    }
-    
-    .footer-links a::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--accent-yellow);
-      opacity: 0;
-      transition: all 0.3s ease;
-    }
-    
-    .footer-links a:hover {
-      color: white;
-      padding-left: 25px;
-    }
-    
-    .footer-links a:hover::before {
-      opacity: 1;
-      left: 5px;
-    }
-    
-    .social-icons {
+
+    .social-links {
       display: flex;
-      margin-top: 20px;
+      gap: 1rem;
     }
-    
-    .social-icons a {
-      color: white;
-      font-size: 1.2rem;
-      margin-right: 15px;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-    }
-    
-    .social-icons a:hover {
-      background: var(--accent-yellow);
-      color: var(--dark-gray);
-      transform: translateY(-5px);
-    }
-    
-    .copyright {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 30px;
-      margin-top: 60px;
-      text-align: center;
-      color: #adb5bd;
-      font-size: 0.9rem;
-    }
-    
-    /* Back to Top Button */
-    .back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
+
+    .social-links a {
       width: 50px;
       height: 50px;
-      background: var(--primary-blue);
-      color: white;
+      background: var(--gradient-purple);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
+      text-decoration: none;
       font-size: 1.2rem;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-      opacity: 0;
-      visibility: hidden;
-      z-index: 999;
-    }
-    
-    .back-to-top.active {
-      opacity: 1;
-      visibility: visible;
-    }
-    
-    .back-to-top:hover {
-      background: var(--secondary-blue);
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      color: var(--text-primary);
+      transition: var(--transition-bounce);
+      box-shadow: var(--shadow-md);
     }
 
-    /* Chatbot Styles */
-    .chatbot-container {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      z-index: 1000;
-      width: 350px;
-      font-family: 'Poppins', sans-serif;
+    .social-links a:hover {
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: var(--shadow-purple);
     }
 
-    .chatbot-toggle {
-      background-color: var(--primary-blue);
-      color: white;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-      margin-left: auto;
-    }
-
-    .chatbot-toggle:hover {
-      background-color: var(--secondary-blue);
-      transform: scale(1.1);
-    }
-
-    .chatbot-toggle i {
-      font-size: 1.5rem;
-    }
-
-    .chatbot-window {
-      background-color: white;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      overflow: hidden;
-      transform: scale(0);
-      transform-origin: bottom right;
-      transition: all 0.3s ease;
-      position: absolute;
-      bottom: 70px;
-      right: 0;
-      width: 100%;
-      max-height: 500px;
-      display: flex;
-      flex-direction: column;
-      opacity: 0;
-      visibility: hidden;
-    }
-
-    .chatbot-window.active {
-      transform: scale(1);
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .chatbot-header {
-      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
-      color: white;
-      padding: 15px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .chatbot-header h5 {
-      margin: 0;
-      font-weight: 600;
-    }
-
-    .chatbot-close {
-      background: none;
-      border: none;
-      color: white;
+    .footer-section h4 {
+      color: var(--text-primary);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
       font-size: 1.2rem;
-      cursor: pointer;
     }
 
-    .chatbot-messages {
-      flex-grow: 1;
-      padding: 15px;
-      overflow-y: auto;
-      background-color: #f8f9fa;
+    .footer-section ul {
+      list-style: none;
     }
 
-    .chatbot-message {
-      margin-bottom: 15px;
-      max-width: 80%;
-      padding: 10px 15px;
-      border-radius: 15px;
-      font-size: 0.9rem;
-      line-height: 1.4;
+    .footer-section ul li {
+      margin-bottom: 0.75rem;
     }
 
-    .chatbot-message.bot {
-      background-color: #e9ecef;
-      border-bottom-left-radius: 5px;
-      margin-right: auto;
+    .footer-section ul li a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: var(--transition-smooth);
+      font-size: 1rem;
     }
 
-    .chatbot-message.user {
-      background-color: var(--primary-blue);
-      color: white;
-      border-bottom-right-radius: 5px;
-      margin-left: auto;
+    .footer-section ul li a:hover {
+      color: var(--gold-primary);
+      transform: translateX(5px);
     }
 
-    .chatbot-input {
-      display: flex;
-      padding: 10px;
-      background-color: white;
-      border-top: 1px solid #eee;
+    .footer-bottom {
+      border-top: var(--border-glass);
+      padding-top: 2rem;
+      text-align: center;
+      color: var(--text-muted);
     }
 
-    .chatbot-input input {
-      flex-grow: 1;
-      padding: 10px 15px;
-      border: 1px solid #ddd;
-      border-radius: 30px;
-      outline: none;
-      font-size: 0.9rem;
+    .footer-bottom p {
+      font-size: 1rem;
     }
 
-    .chatbot-input button {
-      background-color: var(--primary-blue);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      margin-left: 10px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .chatbot-input button:hover {
-      background-color: var(--secondary-blue);
-      transform: scale(1.1);
-    }
-    
-    /* Responsive Adjustments */
-    @media (max-width: 992px) {
-      .hero-content h1 {
-        font-size: 2.8rem;
-      }
-      
-      .hero-content p {
-        font-size: 1.1rem;
-      }
-      
-      .section-title {
-        font-size: 2.2rem;
-      }
-    }
-    
-    @media (max-width: 768px) {
-      .hero-section {
-        padding: 120px 0 80px;
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
         text-align: center;
       }
-      
-      .hero-content h1 {
-        font-size: 2.2rem;
-      }
-      
-      .hero-content p {
-        font-size: 1rem;
-        max-width: 100%;
-      }
-      
-      .section-title {
-        font-size: 1.8rem;
-      }
-      
-      .hero-content h1::after {
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      
-      .about-content h2::after {
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      
-      .contact-info h3::after {
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      
-      .footer-links {
-        margin-bottom: 30px;
-      }
-      
-      .footer-links h5::after {
-        left: 50%;
-        transform: translateX(-50%);
+
+      .hero-graphic {
+        width: 350px;
+        height: 350px;
       }
 
-      .chatbot-container {
-        width: 300px;
-        right: 20px;
-        bottom: 20px;
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
       }
     }
-    
-    @media (max-width: 576px) {
-      .navbar-brand {
-        font-size: 1.2rem;
-      }
-      
-      .navbar-brand img {
-        height: 30px;
-      }
-      
-      .hero-content h1 {
-        font-size: 1.8rem;
-      }
-      
-      .section-title {
-        font-size: 1.5rem;
-      }
-      
-      .service-card, .feature-box {
-        padding: 30px 20px;
-      }
-      
-      .contact-form {
-        padding: 30px 20px;
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
       }
 
-      .chatbot-container {
-        width: 280px;
+      .mobile-toggle {
+        display: block;
+      }
+
+      .hero {
+        padding: 6rem 0 3rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-features {
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 2rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .reach-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-container {
+        padding: 0 1rem;
+      }
+
+      .hero-container,
+      .services-container,
+      .about-container,
+      .reach-container,
+      .blog-container {
+        padding: 0 1rem;
+      }
+
+      .service-card {
+        padding: 2rem;
+      }
+
+      .btn {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+      }
+    }
+
+    /* Animation Classes */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    .fade-in.animate {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+
+    .slide-in-left.animate {
+      opacity: 1;
+      transform: translateX(0);
+      transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .slide-in-right {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+
+    .slide-in-right.animate {
+      opacity: 1;
+      transform: translateX(0);
+      transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+
+    .scale-in.animate {
+      opacity: 1;
+      transform: scale(1);
+      transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .stagger-children > * {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .stagger-children.animate > * {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .stagger-children.animate > *:nth-child(1) { transition-delay: 0.1s; }
+    .stagger-children.animate > *:nth-child(2) { transition-delay: 0.2s; }
+    .stagger-children.animate > *:nth-child(3) { transition-delay: 0.3s; }
+    .stagger-children.animate > *:nth-child(4) { transition-delay: 0.4s; }
+    .stagger-children.animate > *:nth-child(5) { transition-delay: 0.5s; }
+    .stagger-children.animate > *:nth-child(6) { transition-delay: 0.6s; }
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
       }
     }
   </style>
 </head>
-<body>
-  <!-- Loading Animation -->
-  <div class="loading-overlay">
-    <img src="images/logo1.jpeg" alt="Ledger Bros" class="loading-logo" onerror="this.onerror=null; this.outerHTML='<div class=\'loading-logo\' style=\'display:flex; align-items:center; justify-content:center; color:white; font-weight:bold;\'>Ledger Bros</div>';">
-    <div class="loading-spinner">
-      <div></div><div></div><div></div>
-      <div></div><div></div><div></div>
-      <div></div><div></div><div></div>
-    </div>
-    <div class="loading-progress">
-      <div class="loading-progress-bar"></div>
-    </div>
-  </div>
 
-  <!-- Navbar -->
-  <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="images/logo1.jpeg" alt="Ledger Bros Logo" onerror="this.onerror=null; this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 60%22><rect width=%22200%22 height=%2260%22 fill=%22%230056b3%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2224%22 fill=%22white%22>Ledger Bros</text></svg>'">
+<body>
+  <!-- Premium Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <i class="fas fa-diamond"></i>
         Ledger Bros
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
+      
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#reach" class="nav-link">Our Reach</a></li>
+        <li><a href="#blog" class="nav-link">Blog</a></li>
+        <li><a href="#contact" class="nav-link nav-cta">Get Started</a></li>
+      </ul>
+      
+      <button class="mobile-toggle" id="mobile-toggle">
+        <i class="fas fa-bars"></i>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown">
-              Services
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="Private Limited Company.html">Private Limited Company</a></li>
-              <li><a class="dropdown-item" href="Limited Liability Partnership (LLP).html">Limited Liability Partnership (LLP)</a></li>
-              <li><a class="dropdown-item" href="One Person Company (OPC).html">One Person Company (OPC)</a></li>
-              <li><a class="dropdown-item" href="Section 8 Company (NGO).html">Section 8 Company (NGO)</a></li>
-              <li><a class="dropdown-item" href="Nidhi Company.html">Nidhi Company</a></li>
-              <li><a class="dropdown-item" href="Producer Company.html">Producer Company</a></li>
-            </ul>
-          </li>
-          <!-- GST & Tax Dropdown -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="gstDropdown" role="button" data-bs-toggle="dropdown">
-              GST & Tax
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">GST Registration</a></li>
-              <li><a class="dropdown-item" href="#">GST Return Filing</a></li>
-              <li><a class="dropdown-item" href="#">GST LUT Filing</a></li>
-              <li><a class="dropdown-item" href="#">Income Tax Filing</a></li>
-              <li><a class="dropdown-item" href="#">TDS Return Filing</a></li>
-              <li><a class="dropdown-item" href="#">Tax Advisory Services</a></li>
-            </ul>
-          </li>
-          <!-- Trademark & IP Dropdown -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="trademarkDropdown" role="button" data-bs-toggle="dropdown">
-              Trademark & IP
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Trademark Registration</a></li>
-              <li><a class="dropdown-item" href="#">Trademark Objection Reply</a></li>
-              <li><a class="dropdown-item" href="#">Copyright Registration</a></li>
-              <li><a class="dropdown-item" href="#">Patent Registration</a></li>
-              <li><a class="dropdown-item" href="#">Design Registration</a></li>
-              <li><a class="dropdown-item" href="#">Provisional Patent</a></li>
-            </ul>
-          </li>
-          <!-- Compliance Dropdown -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="complianceDropdown" role="button" data-bs-toggle="dropdown">
-              Compliance
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Company Annual Compliance</a></li>
-              <li><a class="dropdown-item" href="#">LLP Annual Compliance</a></li>
-              <li><a class="dropdown-item" href="#">ROC Compliance</a></li>
-              <li><a class="dropdown-item" href="#">DIR-3 KYC</a></li>
-              <li><a class="dropdown-item" href="#">MCA Compliance</a></li>
-              <li><a class="dropdown-item" href="#">Company Strike Off</a></li>
-            </ul>
-          </li>
-          <!-- Startup & Business Dropdown -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="startupDropdown" role="button" data-bs-toggle="dropdown">
-              Startup & Business
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Startup India Registration</a></li>
-              <li><a class="dropdown-item" href="#">MSME Registration</a></li>
-              <li><a class="dropdown-item" href="#">Import Export Code (IEC)</a></li>
-              <li><a class="dropdown-item" href="#">FSSAI License</a></li>
-              <li><a class="dropdown-item" href="#">Shop & Establishment License</a></li>
-              <li><a class="dropdown-item" href="#">ISO Certification</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-      </div>
     </div>
   </nav>
 
-  <!-- Hero Section with Video Background -->
-  <section class="hero-section">
-    <!-- Background Video -->
-    <video autoplay muted loop playsinline class="hero-video" onerror="this.parentNode.innerHTML='<div style=\'position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg, var(--dark-blue), var(--primary-blue));z-index:-1;\'></div>'">
-      <source src="vid.mp4" type="video/mp4">
-      Your browser does not support HTML5 video.
-    </video>
-
-    <!-- Dark overlay -->
-    <div class="overlay"></div>
-
-    <!-- Hero Content -->
-    <div class="container">
+  <!-- Premium Hero Section -->
+  <section class="hero" id="home">
+    <canvas class="particles-canvas" id="particles-canvas"></canvas>
+    <div class="hero-container">
       <div class="hero-content">
-        <h1 class="display-4 fw-bold">Your Trusted Partner for Business Solutions</h1>
-        <p class="lead mb-4">
-          Professional services for company registration, tax filing, and financial compliance to help your business thrive.
+        <div class="hero-badge">
+          <i class="fas fa-crown"></i>
+          <span>Trusted by Fortune 500 Companies</span>
+        </div>
+        
+        <h1 class="hero-title">
+          Transforming Business Excellence Through Innovation
+        </h1>
+        
+        <p class="hero-subtitle">
+          Experience the pinnacle of professional business services. We craft success stories for visionary entrepreneurs and established enterprises through cutting-edge solutions and unparalleled expertise.
         </p>
-        <a href="#services" class="btn btn-hero">Explore More</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" class="services-section">
-    <div class="container">
-      <h2 class="text-center section-title" data-aos="fade-up">Our Comprehensive Services</h2>
-      <p class="text-center mb-5" data-aos="fade-up" data-aos-delay="100">End-to-end business solutions to help you start, manage and grow your business</p>
-      
-      <div class="row g-4">
-        <!-- Company Registration Services -->
-        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="service-card h-100">
-            <div class="service-icon">
-              <i class="fas fa-building"></i>
-            </div>
-            <h3>Company Registration</h3>
-            <ul class="service-features">
-              <li><i class="fas fa-check"></i> Private Limited Company</li>
-              <li><i class="fas fa-check"></i> Limited Liability Partnership (LLP)</li>
-              <li><i class="fas fa-check"></i> One Person Company (OPC)</li>
-              <li><i class="fas fa-check"></i> Section 8 Company (NGO)</li>
-              <li><i class="fas fa-check"></i> Nidhi Company</li>
-              <li><i class="fas fa-check"></i> Producer Company</li>
-            </ul>
-            <a href="#" class="learn-more">Explore All Options <i class="fas fa-arrow-right"></i></a>
-          </div>
+        
+        <div class="hero-buttons">
+          <a href="#services" class="btn btn-primary">
+            <span>Explore Elite Services</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            <i class="fas fa-video"></i>
+            <span>Schedule Consultation</span>
+          </a>
         </div>
         
-        <!-- Compliance & Tax Services -->
-        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="service-card h-100">
-            <div class="service-icon">
-              <i class="fas fa-file-invoice-dollar"></i>
-            </div>
-            <h3>Compliance & Tax</h3>
-            <ul class="service-features">
-              <li><i class="fas fa-check"></i> GST Registration & Filing</li>
-              <li><i class="fas fa-check"></i> Income Tax Return Filing</li>
-              <li><i class="fas fa-check"></i> TDS Return Filing</li>
-              <li><i class="fas fa-check"></i> Company Annual Compliance</li>
-              <li><i class="fas fa-check"></i> LLP Annual Compliance</li>
-              <li><i class="fas fa-check"></i> ROC Compliance Services</li>
-            </ul>
-            <a href="#" class="learn-more">View All Services <i class="fas fa-arrow-right"></i></a>
+        <div class="hero-features">
+          <div class="hero-feature">
+            <i class="fas fa-shield-check"></i>
+            <span>ISO 27001 Certified</span>
           </div>
-        </div>
-        
-        <!-- Intellectual Property Services -->
-        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
-          <div class="service-card h-100">
-            <div class="service-icon">
-              <i class="fas fa-trademark"></i>
-            </div>
-            <h3>Intellectual Property</h3>
-            <ul class="service-features">
-              <li><i class="fas fa-check"></i> Trademark Registration</li>
-              <li><i class="fas fa-check"></i> Copyright Registration</li>
-              <li><i class="fas fa-check"></i> Patent Registration</li>
-              <li><i class="fas fa-check"></i> Design Registration</li>
-              <li><i class="fas fa-check"></i> Trademark Objection Reply</li>
-              <li><i class="fas fa-check"></i> IP Portfolio Management</li>
-            </ul>
-            <a href="#" class="learn-more">Protect Your Brand <i class="fas fa-arrow-right"></i></a>
+          <div class="hero-feature">
+            <i class="fas fa-clock"></i>
+            <span>24/7 Concierge Support</span>
           </div>
-        </div>
-        
-        <!-- Startup & Business Services -->
-        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="service-card h-100">
-            <div class="service-icon">
-              <i class="fas fa-rocket"></i>
-            </div>
-            <h3>Startup & Business</h3>
-            <ul class="service-features">
-              <li><i class="fas fa-check"></i> Startup India Registration</li>
-              <li><i class="fas fa-check"></i> MSME/Udyam Registration</li>
-              <li><i class="fas fa-check"></i> Import Export Code (IEC)</li>
-              <li><i class="fas fa-check"></i> FSSAI License</li>
-              <li><i class="fas fa-check"></i> Shop & Establishment License</li>
-              <li><i class="fas fa-check"></i> Business Plan Consulting</li>
-            </ul>
-            <a href="#" class="learn-more">Grow Your Business <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-        
-        <!-- Accounting & Financial Services -->
-        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="service-card h-100">
-            <div class="service-icon">
-              <i class="fas fa-calculator"></i>
-            </div>
-            <h3>Accounting & Finance</h3>
-            <ul class="service-features">
-              <li><i class="fas fa-check"></i> Bookkeeping Services</li>
-              <li><i class="fas fa-check"></i> Payroll Processing</li>
-              <li><i class="fas fa-check"></i> Financial Statement Preparation</li>
-              <li><i class="fas fa-check"></i> Tax Planning & Advisory</li>
-              <li><i class="fas fa-check"></i> GST Audit Services</li>
-              <li><i class="fas fa-check"></i> Virtual CFO Services</li>
-            </ul>
-            <a href="#" class="learn-more">Manage Your Finances <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-        
-        <!-- Web & Digital Services -->
-        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
-          <div class="service-card h-100">
-            <div class="service-icon">
-              <i class="fas fa-code"></i>
-            </div>
-            <h3>Web & Digital</h3>
-            <ul class="service-features">
-              <li><i class="fas fa-check"></i> Website Design & Development</li>
-              <li><i class="fas fa-check"></i> E-commerce Solutions</li>
-              <li><i class="fas fa-check"></i> SEO Services</li>
-              <li><i class="fas fa-check"></i> Digital Marketing</li>
-              <li><i class="fas fa-check"></i> Logo & Branding</li>
-              <li><i class="fas fa-check"></i> Content Writing</li>
-            </ul>
-            <a href="#" class="learn-more">Build Online Presence <i class="fas fa-arrow-right"></i></a>
+          <div class="hero-feature">
+            <i class="fas fa-globe"></i>
+            <span>Global Presence</span>
           </div>
         </div>
       </div>
       
-      <div class="text-center mt-5" data-aos="fade-up">
-        <a href="#contact" class="btn btn-primary btn-lg">Get Customized Solution</a>
+      <div class="hero-visual">
+        <div class="hero-graphic"></div>
       </div>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="about-section">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6" data-aos="fade-right">
-          <div class="about-img-container">
-            <img src="images/im2.jpeg" alt="About Ledger Bros" class="img-fluid about-img" onerror="this.onerror=null; this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect width=%22400%22 height=%22300%22 fill=%22%230056b3%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2224%22 fill=%22white%22>Ledger Bros Team</text></svg>'">
+  <!-- Premium Stats Section -->
+  <section class="stats">
+    <div class="stats-container">
+      <div class="stats-grid scale-in">
+        <div class="stat-item">
+          <div class="stat-icon">
+            <i class="fas fa-building"></i>
           </div>
+          <div class="stat-number" data-count="50000">0</div>
+          <div class="stat-label">Companies Empowered</div>
         </div>
-        <div class="col-lg-6" data-aos="fade-left">
-          <div class="about-content">
-            <h2>About Us</h2>
-            <p>At Ledger Bros, we make starting and running a business easy. Whether you're launching a new venture or growing an existing one, we're here to help with all your legal, compliance, and financial needs.</p>
-            <p>We offer comprehensive services including company registration, GST compliance, tax filing, trademark protection, and business consulting. Our team of experts ensures that all your paperwork is handled efficiently so you can focus on growing your business.</p>
-            <p>With years of experience in the industry, we've helped hundreds of businesses establish themselves and navigate the complex regulatory environment in India.</p>
-            <a href="#contact" class="btn about-btn mt-3">Contact Us</a>
+        <div class="stat-item">
+          <div class="stat-icon">
+            <i class="fas fa-trophy"></i>
           </div>
+          <div class="stat-number" data-count="150">0</div>
+          <div class="stat-label">Industry Awards</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="stat-number" data-count="99">0</div>
+          <div class="stat-label">Client Satisfaction</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">
+            <i class="fas fa-globe-americas"></i>
+          </div>
+          <div class="stat-number" data-count="120">0</div>
+          <div class="stat-label">Countries Served</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Features Section -->
-  <section class="features-section">
-    <div class="container">
-      <h2 class="text-center section-title" data-aos="fade-up">Why Choose Us</h2>
-      <div class="row">
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="feature-box">
-            <div class="feature-icon">
+  <!-- Premium Services Section -->
+  <section class="services" id="services">
+    <div class="services-container">
+      <div class="section-header fade-in">
+        <div class="section-badge">Premium Solutions</div>
+        <h2 class="section-title">Comprehensive Business Ecosystem</h2>
+        <p class="section-description">
+          Discover our meticulously crafted suite of services designed to propel your business into the future. From strategic consulting to operational excellence, we are your trusted partners in success.
+        </p>
+      </div>
+      
+      <div class="services-grid stagger-children">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h3 class="service-title">Strategic Business Formation</h3>
+          <p class="service-description">
+            Comprehensive entity structuring with advanced legal frameworks, optimized for global operations and sustainable growth trajectories.
+          </p>
+          <ul class="service-features">
+            <li><i class="fas fa-gem"></i> Premium Corporate Structuring</li>
+            <li><i class="fas fa-gem"></i> International Expansion Planning</li>
+            <li><i class="fas fa-gem"></i> Regulatory Compliance Framework</li>
+            <li><i class="fas fa-gem"></i> Strategic Partnership Development</li>
+            <li><i class="fas fa-gem"></i> Executive Advisory Services</li>
+          </ul>
+          <a href="#" class="service-link">
+            Explore Solutions
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="service-title">Advanced Financial Intelligence</h3>
+          <p class="service-description">
+            AI-powered financial analytics and strategic tax optimization delivering measurable value through data-driven insights and proactive planning.
+          </p>
+          <ul class="service-features">
+            <li><i class="fas fa-gem"></i> Predictive Financial Modeling</li>
+            <li><i class="fas fa-gem"></i> Real-time Compliance Monitoring</li>
+            <li><i class="fas fa-gem"></i> Strategic Tax Architecture</li>
+            <li><i class="fas fa-gem"></i> Investment Portfolio Optimization</li>
+            <li><i class="fas fa-gem"></i> Risk Assessment & Mitigation</li>
+          </ul>
+          <a href="#" class="service-link">
+            Explore Solutions
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-shield-halved"></i>
+          </div>
+          <h3 class="service-title">Intellectual Property Mastery</h3>
+          <p class="service-description">
+            Comprehensive IP portfolio management with global protection strategies, enforcement capabilities, and monetization frameworks.
+          </p>
+          <ul class="service-features">
+            <li><i class="fas fa-gem"></i> Global Patent Portfolio</li>
+            <li><i class="fas fa-gem"></i> Brand Protection Strategies</li>
+            <li><i class="fas fa-gem"></i> IP Valuation & Licensing</li>
+            <li><i class="fas fa-gem"></i> Technology Transfer Solutions</li>
+            <li><i class="fas fa-gem"></i> Litigation Support Services</li>
+          </ul>
+          <a href="#" class="service-link">
+            Explore Solutions
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3 class="service-title">Digital Transformation Excellence</h3>
+          <p class="service-description">
+            Next-generation digital solutions leveraging AI, blockchain, and cloud technologies to revolutionize business operations and customer experiences.
+          </p>
+          <ul class="service-features">
+            <li><i class="fas fa-gem"></i> AI-Driven Automation</li>
+            <li><i class="fas fa-gem"></i> Blockchain Integration</li>
+            <li><i class="fas fa-gem"></i> Cloud-Native Architecture</li>
+            <li><i class="fas fa-gem"></i> Data Analytics Platform</li>
+            <li><i class="fas fa-gem"></i> Cybersecurity Framework</li>
+          </ul>
+          <a href="#" class="service-link">
+            Explore Solutions
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h3 class="service-title">Executive Advisory & Consulting</h3>
+          <p class="service-description">
+            C-suite advisory services with industry veterans providing strategic guidance, operational excellence, and transformational leadership.
+          </p>
+          <ul class="service-features">
+            <li><i class="fas fa-gem"></i> Board Advisory Services</li>
+            <li><i class="fas fa-gem"></i> Strategic Planning & Execution</li>
+            <li><i class="fas fa-gem"></i> Mergers & Acquisitions</li>
+            <li><i class="fas fa-gem"></i> Performance Optimization</li>
+            <li><i class="fas fa-gem"></i> Leadership Development</li>
+          </ul>
+          <a href="#" class="service-link">
+            Explore Solutions
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-globe-americas"></i>
+          </div>
+          <h3 class="service-title">Global Market Expansion</h3>
+          <p class="service-description">
+            End-to-end international expansion services including market research, regulatory navigation, and strategic partnership development.
+          </p>
+          <ul class="service-features">
+            <li><i class="fas fa-gem"></i> Market Entry Strategies</li>
+            <li><i class="fas fa-gem"></i> International Legal Compliance</li>
+            <li><i class="fas fa-gem"></i> Cross-Border Operations</li>
+            <li><i class="fas fa-gem"></i> Cultural Integration Planning</li>
+            <li><i class="fas fa-gem"></i> Global Supply Chain Optimization</li>
+          </ul>
+          <a href="#" class="service-link">
+            Explore Solutions
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Premium About Section -->
+  <section class="about" id="about">
+    <div class="about-container">
+      <div class="about-grid">
+        <div class="about-content slide-in-left">
+          <h2>The Ledger Bros Advantage</h2>
+          <p>
+            For over a decade, we have redefined the landscape of professional business services. Our commitment to excellence, innovation, and client success has positioned us as the preferred partner for industry leaders worldwide.
+          </p>
+          <p>
+            We combine deep industry expertise with cutting-edge technology to deliver transformational outcomes. Our global team of certified professionals brings unparalleled value to every engagement, ensuring your business not only meets its objectives but exceeds them.
+          </p>
+          <ul class="about-features">
+            <li>
+              <i class="fas fa-medal"></i>
+              Award-winning team of certified professionals
+            </li>
+            <li>
+              <i class="fas fa-shield-check"></i>
+              Enterprise-grade security and confidentiality
+            </li>
+            <li>
               <i class="fas fa-clock"></i>
-            </div>
-            <h3>Quick Processing</h3>
-            <p>We ensure fast turnaround times for all our services without compromising on quality.</p>
-          </div>
-        </div>
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="feature-box">
-            <div class="feature-icon">
-              <i class="fas fa-rupee-sign"></i>
-            </div>
-            <h3>Affordable Pricing</h3>
-            <p>Competitive pricing with transparent fee structures and no hidden charges.</p>
-          </div>
-        </div>
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-          <div class="feature-box">
-            <div class="feature-icon">
+              Fastest delivery times in the industry
+            </li>
+            <li>
               <i class="fas fa-headset"></i>
-            </div>
-            <h3>Dedicated Support</h3>
-            <p>Our team is always available to answer your queries and provide guidance.</p>
-          </div>
+              Dedicated relationship management
+            </li>
+            <li>
+              <i class="fas fa-globe"></i>
+              Global expertise with local presence
+            </li>
+            <li>
+              <i class="fas fa-chart-line"></i>
+              Proven track record of success
+            </li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">
+            Partner With Us
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+        <div class="about-visual slide-in-right">
+          <img src="images/im2.jpeg" alt="Executive Team at Ledger Bros" class="about-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 400%22><rect width=%22600%22 height=%22400%22 fill=%22url(%23grad)%22/><defs><linearGradient id=%22grad%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22><stop offset=%220%25%22 style=%22stop-color:%23667eea;stop-opacity:1%22 /><stop offset=%22100%25%22 style=%22stop-color:%23764ba2;stop-opacity:1%22 /></linearGradient></defs><text x=%2250%25%22 y=%2245%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Playfair Display%22 font-size=%2224%22 fill=%22white%22 font-weight=%22800%22>Executive Excellence</text><text x=%2250%25%22 y=%2255%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Playfair Display%22 font-size=%2224%22 fill=%22white%22 font-weight=%22800%22>Global Leadership</text></svg>'">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact-section">
-    <div class="container">
-      <h2 class="text-center section-title" data-aos="fade-up">Contact Us</h2>
-      <div class="row">
-        <div class="col-md-6" data-aos="fade-right">
-          <div class="contact-info">
-            <h3>Get in Touch</h3>
-            <p><i class="fas fa-map-marker-alt contact-icon"></i> 123 Business Street, Varanasi, Uttar Pradesh, India</p>
-            <p><i class="fas fa-phone-alt contact-icon"></i> +91 7654846548</p>
-            <p><i class="fas fa-envelope contact-icon"></i> ledgerbros@gmail.com</p>
-            <div class="social-links">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-linkedin-in"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
+  <!-- Our Reach Section -->
+  <section class="reach" id="reach">
+    <div class="reach-container">
+      <div class="section-header fade-in">
+        <div class="section-badge">Global Presence</div>
+        <h2 class="section-title">Our Worldwide Impact</h2>
+        <p class="section-description">
+          With offices spanning six continents and partnerships in over 120 countries, we deliver consistent excellence across diverse markets and cultures.
+        </p>
+      </div>
+      
+      <div class="reach-grid stagger-children">
+        <div class="reach-card">
+          <div class="reach-icon">
+            <i class="fas fa-building"></i>
           </div>
+          <h3 class="reach-title">Regional Headquarters</h3>
+          <p class="reach-description">
+            Strategic offices in New York, London, Singapore, Dubai, Mumbai, and São Paulo ensuring 24/7 global coverage and local expertise.
+          </p>
         </div>
-        <div class="col-md-6" data-aos="fade-left">
-          <div class="contact-form">
-            <form>
-              <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Your Name" required>
-              </div>
-              <div class="mb-3">
-                <input type="email" class="form-control" placeholder="Your Email" required>
-              </div>
-              <div class="mb-3">
-                <input type="tel" class="form-control" placeholder="Phone Number">
-              </div>
-              <div class="mb-3">
-                <select class="form-select" required>
-                  <option value="" selected disabled>Select Service</option>
-                  <option>Company Registration</option>
-                  <option>Trademark Filing</option>
-                  <option>GST Registration</option>
-                  <option>Income Tax Filing</option>
-                  <option>Startup & MSME Registration</option>
-                  <option>Web Development</option>
-                </select>
-              </div>
-              <div class="mb-3">
-                <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
-              </div>
-              <button type="submit" class="btn btn-submit">Submit</button>
-            </form>
+        
+        <div class="reach-card">
+          <div class="reach-icon">
+            <i class="fas fa-handshake"></i>
           </div>
+          <h3 class="reach-title">Strategic Partnerships</h3>
+          <p class="reach-description">
+            Collaborative networks with leading law firms, accounting practices, and consulting agencies worldwide for comprehensive service delivery.
+          </p>
+        </div>
+        
+        <div class="reach-card">
+          <div class="reach-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3 class="reach-title">Expert Teams</h3>
+          <p class="reach-description">
+            Over 2,000 certified professionals including CPAs, attorneys, management consultants, and technology specialists across all time zones.
+          </p>
+        </div>
+        
+        <div class="reach-card">
+          <div class="reach-icon">
+            <i class="fas fa-award"></i>
+          </div>
+          <h3 class="reach-title">Industry Recognition</h3>
+          <p class="reach-description">
+            Consistently ranked among the top business service providers by Forbes, Financial Times, and industry trade publications.
+          </p>
+        </div>
+        
+        <div class="reach-card">
+          <div class="reach-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3 class="reach-title">Compliance Excellence</h3>
+          <p class="reach-description">
+            Adherence to the highest international standards including SOX, GDPR, ISO certifications, and regional regulatory requirements.
+          </p>
+        </div>
+        
+        <div class="reach-card">
+          <div class="reach-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h3 class="reach-title">Innovation Labs</h3>
+          <p class="reach-description">
+            Cutting-edge research and development facilities focused on emerging technologies, regulatory changes, and market evolution.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 mb-4">
-          <img src="images/im1.jpeg" alt="Ledger Bros" class="footer-logo" onerror="this.onerror=null; this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 60%22><rect width=%22200%22 height=%2260%22 fill=%22%230056b3%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2224%22 fill=%22white%22>Ledger Bros</text></svg>'">
-          <p>Your trusted partner for all business registration, compliance, and financial services in India.</p>
-          <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+  <!-- Blog Section -->
+  <section class="blog" id="blog">
+    <div class="blog-container">
+      <div class="section-header fade-in">
+        <div class="section-badge">Insights & Expertise</div>
+        <h2 class="section-title">Business Intelligence Hub</h2>
+        <p class="section-description">
+          Stay ahead with our expert insights, industry analysis, and strategic perspectives from our thought leaders and subject matter experts.
+        </p>
+      </div>
+      
+      <div class="blog-grid stagger-children">
+        <article class="blog-card">
+          <img src="images/im2.jpeg" alt="AI Business Transformation" class="blog-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 250%22><rect width=%22400%22 height=%22250%22 fill=%22%23667eea%22/><text x=%2250%25%22 y=%2245%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Inter%22 font-size=%2220%22 fill=%22white%22 font-weight=%22700%22>AI Business</text><text x=%2250%25%22 y=%2255%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Inter%22 font-size=%2220%22 fill=%22white%22 font-weight=%22700%22>Transformation</text></svg>'">
+          <div class="blog-content">
+            <span class="blog-category">Strategy</span>
+            <h3 class="blog-title">AI-Driven Business Transformation: The Future is Now</h3>
+            <p class="blog-excerpt">
+              Explore how artificial intelligence is revolutionizing business operations, from predictive analytics to automated decision-making processes.
+            </p>
+            <div class="blog-meta">
+              <i class="fas fa-calendar"></i>
+              <span>December 15, 2024</span>
+              <i class="fas fa-user"></i>
+              <span>Dr. Sarah Chen, CTO</span>
+            </div>
+            <a href="#" class="blog-link">
+              Read Full Article
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+        
+        <article class="blog-card">
+          <img src="images/im2.jpeg" alt="Global Compliance Trends" class="blog-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 250%22><rect width=%22400%22 height=%22250%22 fill=%22%238b5cf6%22/><text x=%2250%25%22 y=%2245%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Inter%22 font-size=%2220%22 fill=%22white%22 font-weight=%22700%22>Global Compliance</text><text x=%2250%25%22 y=%2255%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Inter%22 font-size=%2220%22 fill=%22white%22 font-weight=%22700%22>Trends 2025</text></svg>'">
+          <div class="blog-content">
+            <span class="blog-category">Compliance</span>
+            <h3 class="blog-title">Global Compliance Trends: Navigating 2025 Regulations</h3>
+            <p class="blog-excerpt">
+              A comprehensive analysis of emerging regulatory landscapes and their impact on international business operations and strategic planning.
+            </p>
+            <div class="blog-meta">
+              <i class="fas fa-calendar"></i>
+              <span>December 12, 2024</span>
+              <i class="fas fa-user"></i>
+              <span>Michael Rodriguez, Senior Partner</span>
+            </div>
+            <a href="#" class="blog-link">
+              Read Full Article
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+        
+        <article class="blog-card">
+          <img src="images/im2.jpeg" alt="Sustainable Business Models" class="blog-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2024/svg%22 viewBox=%220 0 400 250%22><rect width=%22400%22 height=%22250%22 fill=%22%2310b981%22/><text x=%2250%25%22 y=%2245%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Inter%22 font-size=%2220%22 fill=%22white%22 font-weight=%22700%22>Sustainable</text><text x=%2250%25%22 y=%2255%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Inter%22 font-size=%2220%22 fill=%22white%22 font-weight=%22700%22>Business Models</text></svg>'">
+          <div class="blog-content">
+            <span class="blog-category">Innovation</span>
+            <h3 class="blog-title">Building Sustainable Business Models for the Next Decade</h3>
+            <p class="blog-excerpt">
+              Discover strategies for creating environmentally conscious and socially responsible business frameworks that drive long-term value creation.
+            </p>
+            <div class="blog-meta">
+              <i class="fas fa-calendar"></i>
+              <span>December 10, 2024</span>
+              <i class="fas fa-user"></i>
+              <span>Emma Thompson, Sustainability Lead</span>
+            </div>
+            <a href="#" class="blog-link">
+              Read Full Article
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Premium Footer -->
+  <footer class="footer" id="contact">
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>Ledger Bros</h3>
+          <p>
+            Transforming businesses worldwide through innovative solutions, strategic expertise, and unwavering commitment to excellence. Your success is our legacy.
+          </p>
+          <div class="social-links">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
           </div>
         </div>
-        <div class="col-lg-2 col-md-4 mb-4">
-          <div class="footer-links">
-            <h5>Services</h5>
-            <ul>
-              <li><a href="#">Company Registration</a></li>
-              <li><a href="#">Trademark Filing</a></li>
-              <li><a href="#">GST Services</a></li>
-              <li><a href="#">Tax Filing</a></li>
-              <li><a href="#">Startup & MSME</a></li>
-              <li><a href="#">Web Development</a></li>
-            </ul>
-          </div>
+        
+        <div class="footer-section">
+          <h4>Solutions</h4>
+          <ul>
+            <li><a href="#">Business Formation</a></li>
+            <li><a href="#">Financial Intelligence</a></li>
+            <li><a href="#">IP Management</a></li>
+            <li><a href="#">Digital Transformation</a></li>
+            <li><a href="#">Executive Advisory</a></li>
+          </ul>
         </div>
-        <div class="col-lg-2 col-md-4 mb-4">
-          <div class="footer-links">
-            <h5>Company</h5>
-            <ul>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Our Team</a></li>
-              <li><a href="#">Testimonials</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Careers</a></li>
-            </ul>
-          </div>
+        
+        <div class="footer-section">
+          <h4>Industries</h4>
+          <ul>
+            <li><a href="#">Technology</a></li>
+            <li><a href="#">Healthcare</a></li>
+            <li><a href="#">Financial Services</a></li>
+            <li><a href="#">Manufacturing</a></li>
+            <li><a href="#">Real Estate</a></li>
+          </ul>
         </div>
-        <div class="col-lg-4 col-md-4 mb-4">
-          <div class="footer-links">
-            <h5>Contact Info</h5>
-            <ul>
-              <li><i class="fas fa-map-marker-alt me-2"></i> Varanasi, India</li>
-              <li><i class="fas fa-phone-alt me-2"></i> +91 7654846548</li>
-              <li><i class="fas fa-envelope me-2"></i> ledgerbros@gmail.com</li>
-            </ul>
-          </div>
+        
+        <div class="footer-section">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#blog">Insights</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Investor Relations</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="tel:+1-800-LEDGER-1">+1-800-LEDGER-1</a></li>
+            <li><a href="mailto:executive@ledgerbros.com">executive@ledgerbros.com</a></li>
+            <li><a href="#">Client Portal</a></li>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
         </div>
       </div>
-      <div class="copyright">
-        <p>&copy; 2023 Ledger Bros. All Rights Reserved.</p>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2024 Ledger Bros International. All rights reserved. Crafting excellence for extraordinary enterprises worldwide.</p>
       </div>
     </div>
   </footer>
 
-  <!-- Back to Top Button -->
-  <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
-
-  <!-- Chatbot Container -->
-  <div class="chatbot-container">
-    <div class="chatbot-toggle" id="chatbotToggle">
-      <i class="fas fa-comments"></i>
-    </div>
-    <div class="chatbot-window" id="chatbotWindow">
-      <div class="chatbot-header">
-        <h5>Ledger Bros Assistant</h5>
-        <button class="chatbot-close" id="chatbotClose">&times;</button>
-      </div>
-      <div class="chatbot-messages" id="chatbotMessages">
-        <div class="chatbot-message bot">
-          Hello! I'm your Ledger Bros assistant. How can I help you today?
-        </div>
-      </div>
-      <div class="chatbot-input">
-        <input type="text" id="chatbotInput" placeholder="Type your message...">
-        <button id="chatbotSend"><i class="fas fa-paper-plane"></i></button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- AOS JS -->
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-
-  <!-- Custom JS -->
+  <!-- Premium Scripts -->
   <script>
-    // Enhanced Loading Animation Script
-    document.addEventListener('DOMContentLoaded', function() {
-      const progressBar = document.querySelector('.loading-progress-bar');
-      const overlay = document.querySelector('.loading-overlay');
-      
-      // Max loading time to prevent infinite loading
-      const maxLoadTime = 5000; // 5 seconds max
-      const startTime = Date.now();
-      
-      // Progress simulation
-      let progress = 0;
-      const interval = setInterval(function() {
-        progress += Math.random() * 15;
-        if (progress >= 100) {
-          progress = 100;
-          clearInterval(interval);
-          setTimeout(finishLoading, 500);
+    // Advanced GSAP Animations
+    gsap.registerPlugin(ScrollTrigger, TextPlugin);
+
+    // Particles.js Configuration
+    particlesJS('particles-canvas', {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: '#ffd700' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5, random: false },
+        size: { value: 3, random: true },
+        line_linked: { 
+          enable: true, 
+          distance: 150, 
+          color: '#ffd700', 
+          opacity: 0.2, 
+          width: 1 
+        },
+        move: { 
+          enable: true, 
+          speed: 2, 
+          direction: 'none', 
+          random: false, 
+          straight: false, 
+          out_mode: 'out', 
+          bounce: false 
         }
-        if (progressBar) {
-          progressBar.style.width = progress + '%';
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: { 
+          onhover: { enable: true, mode: 'grab' }, 
+          onclick: { enable: true, mode: 'push' }, 
+          resize: true 
+        },
+        modes: { 
+          grab: { distance: 140, line_linked: { opacity: 1 } }, 
+          push: { particles_nb: 4 } 
         }
-        
-        // If we've taken too long, finish loading
-        if (Date.now() - startTime > maxLoadTime) {
-          clearInterval(interval);
-          finishLoading();
-        }
-      }, 200);
-      
-      // Window load event as secondary trigger
-      window.addEventListener('load', function() {
-        clearInterval(interval);
-        finishLoading();
-      });
-      
-      function finishLoading() {
-        if (progressBar) {
-          progressBar.style.width = '100%';
-        }
-        setTimeout(function() {
-          document.body.classList.add('loaded');
-          createParticles();
-          initScrollAnimations();
-        }, 500);
-      }
+      },
+      retina_detect: true
     });
 
-    // Navbar background toggle on scroll
-    const navbar = document.getElementById('navbar');
+    // Navbar scroll effect
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 100) {
         navbar.classList.add('scrolled');
       } else {
         navbar.classList.remove('scrolled');
       }
     });
 
-    // Smooth scrolling for anchor links
+    // Smooth scroll navigation
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
+      anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 70,
-            behavior: 'smooth'
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          gsap.to(window, {
+            duration: 1.5,
+            scrollTo: target,
+            ease: "power2.inOut"
           });
         }
       });
     });
 
-    // Back to Top Button
-    const backToTopButton = document.querySelector('.back-to-top');
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) {
-        backToTopButton.classList.add('active');
-      } else {
-        backToTopButton.classList.remove('active');
-      }
-    });
-    
-    backToTopButton.addEventListener('click', function(e) {
-      e.preventDefault();
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-
-    // Create floating particles for hero section
-    function createParticles() {
-      const particlesContainer = document.createElement('div');
-      particlesContainer.id = 'particles';
-      document.querySelector('.hero-section').appendChild(particlesContainer);
-      
-      const particleCount = 20;
-      
-      for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
-        
-        // Random properties
-        const size = Math.random() * 5 + 2;
-        const posX = Math.random() * 100;
-        const posY = Math.random() * 100 + 100;
-        const duration = Math.random() * 15 + 10;
-        const delay = Math.random() * 5;
-        const opacity = Math.random() * 0.3 + 0.1;
-        
-        // Apply styles
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        particle.style.left = `${posX}%`;
-        particle.style.top = `${posY}%`;
-        particle.style.animationDuration = `${duration}s`;
-        particle.style.animationDelay = `${delay}s`;
-        particle.style.opacity = opacity;
-        
-        // Add to container
-        particlesContainer.appendChild(particle);
-      }
-    }
-
-    // Initialize GSAP scroll animations
-    function initScrollAnimations() {
-      // Only initialize if GSAP is loaded
-      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-        // Animate service cards with stagger
-        gsap.utils.toArray('.service-card').forEach((card, i) => {
-          gsap.from(card, {
-            scrollTrigger: {
-              trigger: card,
-              start: "top 80%",
-              toggleActions: "play none none none"
-            },
-            y: 50,
-            opacity: 0,
-            duration: 0.8,
-            delay: i * 0.1,
-            ease: "power2.out"
-          });
+    // Premium counter animations
+    function animateCounters() {
+      document.querySelectorAll('.stat-number').forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-count'));
+        gsap.to(counter, {
+          duration: 2.5,
+          textContent: target,
+          roundProps: "textContent",
+          ease: "power2.out",
+          onUpdate: function() {
+            const current = Math.floor(this.targets()[0].textContent);
+            if (target === 99) {
+              counter.textContent = current + '%';
+            } else if (target >= 1000) {
+              counter.textContent = current.toLocaleString() + '+';
+            } else {
+              counter.textContent = current + '+';
+            }
+          }
         });
-
-        // Initialize AOS after page load
-        if (typeof AOS !== 'undefined') {
-          AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
-          });
-        }
-      }
+      });
     }
 
-    // Chatbot functionality
-    document.addEventListener('DOMContentLoaded', function() {
-      const chatbotToggle = document.getElementById('chatbotToggle');
-      const chatbotWindow = document.getElementById('chatbotWindow');
-      const chatbotClose = document.getElementById('chatbotClose');
-      const chatbotMessages = document.getElementById('chatbotMessages');
-      const chatbotInput = document.getElementById('chatbotInput');
-      const chatbotSend = document.getElementById('chatbotSend');
+    // Advanced intersection observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -10% 0px'
+    };
 
-      // Toggle chatbot window
-      chatbotToggle.addEventListener('click', function() {
-        chatbotWindow.classList.toggle('active');
-      });
-
-      // Close chatbot window
-      chatbotClose.addEventListener('click', function() {
-        chatbotWindow.classList.remove('active');
-      });
-
-      // Send message function
-      function sendMessage() {
-        const message = chatbotInput.value.trim();
-        if (message === '') return;
-
-        // Add user message
-        addMessage(message, 'user');
-        chatbotInput.value = '';
-
-        // Bot response
-        setTimeout(() => {
-          const botResponse = getBotResponse(message);
-          addMessage(botResponse, 'bot');
-        }, 500);
-      }
-
-      // Add message to chat
-      function addMessage(text, sender) {
-        const messageElement = document.createElement('div');
-        messageElement.classList.add('chatbot-message', sender);
-        messageElement.textContent = text;
-        chatbotMessages.appendChild(messageElement);
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-      }
-
-      // Get bot response
-      function getBotResponse(message) {
-        const lowerMessage = message.toLowerCase();
-        
-        if (lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
-          return "Hello! How can I assist you with Ledger Bros services today?";
-        } else if (lowerMessage.includes('service') || lowerMessage.includes('help')) {
-          return "We offer company registration, GST filing, trademark services, tax filing, Startup & MSME registration, and web development services. Which one are you interested in?";
-        } else if (lowerMessage.includes('price') || lowerMessage.includes('cost')) {
-          return "Our pricing varies depending on the service. Could you specify which service you're interested in so I can provide accurate information?";
-        } else if (lowerMessage.includes('contact') || lowerMessage.includes('reach')) {
-          return "You can reach us at +91 7654846548 or email us at ledgerbros@gmail.com. Our office is located at 123 Business Street, Varanasi.";
-        } else if (lowerMessage.includes('thank')) {
-          return "You're welcome! Is there anything else I can help you with?";
-        } else if (lowerMessage.includes('web') || lowerMessage.includes('website')) {
-          return "Our web development services include custom website design, e-commerce solutions, and responsive development. We can create a professional online presence for your business.";
-        } else if (lowerMessage.includes('startup') || lowerMessage.includes('msme')) {
-          return "We help businesses register under Startup India and MSME schemes to access government benefits. This includes recognition certificates, tax benefits, and easier access to loans.";
-        } else {
-          return "I'm here to help with information about our services. Could you be more specific about what you need help with?";
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+          
+          if (entry.target.classList.contains('stats-grid')) {
+            animateCounters();
+          }
+          
+          observer.unobserve(entry.target);
         }
-      }
+      });
+    }, observerOptions);
 
-      // Send message on button click
-      chatbotSend.addEventListener('click', sendMessage);
+    // Observe all animation elements
+    document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .stagger-children').forEach(el => {
+      observer.observe(el);
+    });
 
-      // Send message on Enter key
-      chatbotInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-          sendMessage();
+    // Premium service cards animation
+    gsap.utils.toArray('.service-card').forEach((card, i) => {
+      gsap.set(card, { opacity: 0, y: 100, rotationY: -15 });
+      
+      ScrollTrigger.create({
+        trigger: card,
+        start: 'top 85%',
+        onEnter: () => {
+          gsap.to(card, {
+            opacity: 1,
+            y: 0,
+            rotationY: 0,
+            duration: 1.2,
+            delay: i * 0.15,
+            ease: 'back.out(1.7)'
+          });
+        }
+      });
+
+      // Premium hover effects
+      card.addEventListener('mouseenter', () => {
+        gsap.to(card, {
+          scale: 1.02,
+          y: -15,
+          rotationY: 2,
+          duration: 0.4,
+          ease: 'power2.out'
+        });
+      });
+
+      card.addEventListener('mouseleave', () => {
+        gsap.to(card, {
+          scale: 1,
+          y: 0,
+          rotationY: 0,
+          duration: 0.4,
+          ease: 'power2.out'
+        });
+      });
+    });
+
+    // Premium parallax effects
+    gsap.utils.toArray('.hero::before, .services::before, .reach::before').forEach(element => {
+      gsap.to(element, {
+        yPercent: -50,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: element.parentElement,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1
         }
       });
     });
+
+    // Text animation for titles
+    gsap.utils.toArray('.section-title').forEach(title => {
+      ScrollTrigger.create({
+        trigger: title,
+        start: 'top 80%',
+        onEnter: () => {
+          gsap.from(title, {
+            opacity: 0,
+            y: 50,
+            duration: 1.2,
+            ease: 'power3.out'
+          });
+        }
+      });
+    });
+
+    // Mobile menu functionality
+    document.getElementById('mobile-toggle').addEventListener('click', function() {
+      const navMenu = document.querySelector('.nav-menu');
+      navMenu.classList.toggle('active');
+    });
+
+    // Initialize all animations on page load
+    window.addEventListener('load', () => {
+      // Hero content animation timeline
+      const heroTimeline = gsap.timeline({ delay: 0.5 });
+      
+      heroTimeline
+        .from('.hero-badge', {
+          y: -50,
+          opacity: 0,
+          duration: 1,
+          ease: 'back.out(1.7)'
+        })
+        .from('.hero-title', {
+          y: 100,
+          opacity: 0,
+          duration: 1.5,
+          ease: 'power3.out'
+        }, '-=0.5')
+        .from('.hero-subtitle', {
+          y: 50,
+          opacity: 0,
+          duration: 1,
+          ease: 'power2.out'
+        }, '-=0.8')
+        .from('.hero-buttons', {
+          y: 50,
+          opacity: 0,
+          duration: 1,
+          ease: 'power2.out'
+        }, '-=0.5')
+        .from('.hero-features', {
+          y: 30,
+          opacity: 0,
+          duration: 0.8,
+          ease: 'power2.out'
+        }, '-=0.3')
+        .from('.hero-graphic', {
+          scale: 0.8,
+          opacity: 0,
+          duration: 1.8,
+          ease: 'back.out(1.7)'
+        }, '-=1.2');
+    });
+
+    // Performance optimization
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (prefersReducedMotion.matches) {
+      gsap.set('*', { animation: 'none', transition: 'none' });
+    }
   </script>
 </body>
 </html>
