@@ -1,13 +1,14 @@
 :root {
-    --primary-color: #007bff;
-    --primary-dark: #0056b3;
-    --primary-light: #e3f2fd;
-    --text-dark: #212529;
+    --primary-color: #1a2238; /* Deep navy */
+    --primary-dark: #0d1331;  /* Even deeper navy */
+    --primary-light: #eaeaea; /* Light gray */
+    --text-dark: #23272f;     /* Charcoal */
     --text-light: #fff;
-    --footer-bg: #222;
-    --dark-blue: #003366;
-    --accent-color: #3399ff;
-    --shadow-color: rgba(0, 123, 255, 0.25);
+    --footer-bg: #181c2f;
+    --accent-color: #ffd700;  /* Gold */
+    --shadow-color: rgba(26, 34, 56, 0.12);
+    --divider-color: #e0e0e0;
+    --section-bg: #f7f8fa;
 }
 
 /* Ensure full viewport height */
@@ -347,4 +348,115 @@ h1::before {
     display: none !important;
     border: none !important;
     background: none !important;
+}
+
+body {
+    background: var(--section-bg);
+    color: var(--text-dark);
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    letter-spacing: 0.01em;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+    text-align: center;
+}
+
+.section-divider {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+    border-radius: 2px;
+    margin: 0 auto 2.5rem auto;
+}
+
+.section {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 32px var(--shadow-color);
+    padding: 3.5rem 2rem;
+    margin: 3rem 0;
+    position: relative;
+}
+
+/* Service Cards - Professional Look */
+#services .card {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px var(--shadow-color);
+    background: linear-gradient(135deg, #fff 80%, var(--primary-light) 100%);
+    transition: box-shadow 0.2s, transform 0.2s;
+    padding: 2rem 1.5rem;
+    margin-bottom: 2rem;
+}
+#services .card:hover {
+    box-shadow: 0 8px 32px var(--shadow-color);
+    transform: translateY(-4px) scale(1.03);
+}
+#services .card-title {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+/* Buttons - Gold accent, minimal */
+.btn-hero, .btn-primary {
+    background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+    color: var(--text-light);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.75rem 2.5rem;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.btn-hero:hover, .btn-primary:hover {
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    color: var(--accent-color);
+    box-shadow: 0 4px 16px var(--shadow-color);
+    transform: translateY(-2px) scale(1.04);
+}
+
+/* Professional Navbar */
+.navbar {
+    background: #fff;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    border-bottom: 1px solid var(--divider-color);
+}
+.navbar .nav-link {
+    color: var(--primary-color);
+    font-weight: 500;
+    margin: 0 1rem;
+    transition: color 0.2s;
+}
+.navbar .nav-link.active, .navbar .nav-link:hover {
+    color: var(--accent-color);
+}
+
+/* Footer */
+.footer {
+    background: var(--footer-bg);
+    color: var(--text-light);
+    padding: 2.5rem 0 1.5rem 0;
+    text-align: center;
+    font-size: 1rem;
+    border-top: 1px solid var(--divider-color);
+}
+
+/* Add more whitespace to sections */
+@media (max-width: 900px) {
+    .section {
+        padding: 2rem 0.5rem;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
 }
